@@ -31,6 +31,10 @@ public class FileReport {
         Gson gson = new Gson();
         AnalysisResponse gsonResponse = gson.fromJson(jsonResponse, AnalysisResponse.class);
         String id = gsonResponse.getData().getId();
+
+        if (id.contains("==")) {
+            id = id.replace("==", "%3D%3D");
+        }
         return id;
     }
     public String getFileReport(String jsonResponse) throws IOException {

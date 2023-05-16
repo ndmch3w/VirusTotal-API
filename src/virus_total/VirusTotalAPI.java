@@ -23,7 +23,7 @@ public class VirusTotalAPI {
 
         switch (choice){
             case "1":
-                UploadFile upload = new UploadFile(key.getApiKey(), "Lesson plan requirements.pdf");
+                UploadFile upload = new UploadFile(key.getApiKey(), "wildfire-test-apk-file.apk");
                 String responseUploadFile = upload.getResponseUploadFile();
                 FileReport report = new FileReport(key.getApiKey());
                 System.out.println(report.getFileReport(responseUploadFile));
