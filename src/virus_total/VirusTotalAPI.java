@@ -1,10 +1,13 @@
 package virus_total;
 
+import org.json.JSONException;
+
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class VirusTotalAPI {
-    public static void main(String[] args) throws IOException    {
+    public static void main(String[] args) throws IOException, JSONException {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Input your VirusTotal API key for more options:");
@@ -23,10 +26,17 @@ public class VirusTotalAPI {
 
         switch (choice){
             case "1":
-                UploadFile upload = new UploadFile(key.getApiKey(), "wildfire-test-apk-file.apk");
+                /*UploadFile upload = new UploadFile(key.getApiKey(), "wildfire-test-apk-file.apk");
                 String responseUploadFile = upload.getResponseUploadFile();
+
                 FileReport report = new FileReport(key.getApiKey());
-                System.out.println(report.getFileReport(responseUploadFile));
+                // System.out.println(report.getFileReport(responseUploadFile));
+                /*FileWriter wr = new FileWriter("FileReport.json");
+                wr.write(report.getFileReport(responseUploadFile));
+                wr.close();*/
+
+                JsonToCsv converter = new JsonToCsv("FileReport.json", "FileReport.csv");
+                converter.Execute();
                 break;
             default:
                 break;
