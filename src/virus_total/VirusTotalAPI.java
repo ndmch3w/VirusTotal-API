@@ -26,17 +26,24 @@ public class VirusTotalAPI {
 
         switch (choice){
             case "1":
-                /*UploadFile upload = new UploadFile(key.getApiKey(), "wildfire-test-apk-file.apk");
+                UploadFile upload = new UploadFile(key.getApiKey(), "wildfire-test-apk-file.apk");
                 String responseUploadFile = upload.getResponseUploadFile();
 
                 FileReport report = new FileReport(key.getApiKey());
                 // System.out.println(report.getFileReport(responseUploadFile));
-                /*FileWriter wr = new FileWriter("FileReport.json");
-                wr.write(report.getFileReport(responseUploadFile));
-                wr.close();*/
+                FileWriter wr1 = new FileWriter("FileReport.json");
+                wr1.write(report.getFileReport(responseUploadFile));
+                wr1.close();
 
-                JsonToCsv converter = new JsonToCsv("FileReport.json", "FileReport.csv");
-                converter.Execute();
+                /*JsonToCsv converter = new JsonToCsv("FileReport.json", "FileReport.csv");
+                converter.Execute();*/
+                break;
+            case "2":
+                ScanUrl scan = new ScanUrl(key.getApiKey(), "https://kenh14.vn");
+                String responseScanUrl = scan.getResponse();
+                FileWriter wr2 = new FileWriter("UrlReport.json");
+                wr2.write(responseScanUrl);
+                wr2.close();
                 break;
             default:
                 break;
