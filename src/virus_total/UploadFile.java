@@ -75,9 +75,9 @@ public class UploadFile {
             }
             errorReader.close();
 
-            System.out.println("Error response: " + errorResponse.toString());
+            String res = errorResponse.toString();
             connection.disconnect();
-            return null;
+            return res;
         }
     }
 }
