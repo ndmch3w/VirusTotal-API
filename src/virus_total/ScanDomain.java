@@ -1,39 +1,23 @@
 package virus_total;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 import java.net.HttpURLConnection;
-import java.net.URLEncoder;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 
-import java.util.Base64;
-
-public class ScanUrl {
+public class ScanDomain {
     private String apiKey;
-    private String urlToScan;
+    private String domain;
 
-    public ScanUrl(String apiKey, String urlToScan){
+    public ScanDomain(String apiKey, String domain){
         this.apiKey = apiKey;
-        this.urlToScan = urlToScan;
-    }
-
-    private String getUrlId(){
-        String url = urlToScan;
-        byte[] urlBytes = url.getBytes();
-
-        String encodedUrl = Base64.getUrlEncoder().withoutPadding().encodeToString(urlBytes);
-        encodedUrl = encodedUrl.replaceAll("=", "");
-
-        return encodedUrl;
+        this.domain = domain;
     }
 
     public String getResponse() throws IOException {
-        //System.out.println(getUrlId());
-        String url = "https://www.virustotal.com/api/v3/urls/" + getUrlId();
+        String url = "https://www.virustotal.com/api/v3/domains/" + domain;
         URL apiUrl = new URL(url);
 
         HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();
@@ -42,12 +26,11 @@ public class ScanUrl {
         connection.setRequestProperty("x-apikey", apiKey);
 
         int responseCode = connection.getResponseCode();
-        if (responseCode == HttpURLConnection.HTTP_OK) {
-            // Successful request
+        if (responseCode == HttpURLConnection.HTTP_OK){
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
             StringBuilder response = new StringBuilder();
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null){
                 response.append(line);
             }
             reader.close();
@@ -55,19 +38,18 @@ public class ScanUrl {
             String res = response.toString();
             connection.disconnect();
             return res;
-        } else {
-            // Error occurred
+        }else{
             BufferedReader errorReader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
             String line;
             StringBuilder errorResponse = new StringBuilder();
-            while ((line = errorReader.readLine()) != null) {
+            while ((line = errorReader.readLine()) != null){
                 errorResponse.append(line);
             }
             errorReader.close();
 
-            System.out.println("Error response: " + errorResponse.toString());
+            String res = errorResponse.toString();
             connection.disconnect();
-            return null;
+            return res;
         }
     }
 }
