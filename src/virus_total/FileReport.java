@@ -39,7 +39,7 @@ public class FileReport {
     }
     public String getFileReport(String jsonResponse) throws IOException {
         String url = "https://www.virustotal.com/api/v3/analyses/" + getId(jsonResponse);
-
+        System.out.println(url);
         URL apiUrl = new URL(url);
         HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();
         connection.setRequestMethod("GET");
