@@ -2,7 +2,6 @@ package virus_total;
 
 import org.json.JSONException;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -19,6 +18,7 @@ public class VirusTotalAPI {
         System.out.println("1. Upload and Scan file");
         System.out.println("2. Scan URL");
         System.out.println("3. Scan domain name");
+        System.out.println("4. Scan IP address");
         System.out.println("0. Exit");
 
         System.out.println("Type in your selection (e.g. '1'):");
@@ -53,6 +53,13 @@ public class VirusTotalAPI {
                 FileWriter wr3 = new FileWriter("DomainReport.json");
                 wr3.write(responseScanDomain);
                 wr3.close();
+                break;
+            case "4":
+                ScanIp scanIp = new ScanIp(key.getApiKey(), "93.174.89.224");
+                String responseScanIp = scanIp.getResponse();
+                FileWriter wr4 = new FileWriter("IpReport.json");
+                wr4.write(responseScanIp);
+                wr4.close();
                 break;
             default:
                 break;
