@@ -1,6 +1,7 @@
 package virus_total;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,7 +23,7 @@ public class JsonToCsv {
         this.csvFilePath = csvFile;
     }
 
-    public void FileReportToCsv() throws IOException{
+    public void FileReportToCsv() throws IOException, JSONException {
         Gson gson = new Gson();
         FileReader fileReader = new FileReader(jsonFilePath);
 
@@ -39,9 +40,8 @@ public class JsonToCsv {
                 .getAsJsonObject("attributes")
                 .getAsJsonObject("results");
         System.out.println("Detailed report (new Json): " + resultsObject.toString());
-
     }
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException, JSONException {
         JsonToCsv test = new JsonToCsv("FileReport.json");
         test.FileReportToCsv();
     }
