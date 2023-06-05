@@ -28,12 +28,12 @@ public class VirusTotalAPI {
 
         switch (choice){
             case "1":
-                UploadFile upload = new UploadFile(key.getApiKey(), "wildfire-test-apk-file.apk");
+                UploadFile upload = new UploadFile(key.getApiKey(), "Malware test files/eicar_com.zip");
                 String responseUploadFile = upload.getResponseUploadFile();
 
                 FileReport report = new FileReport(key.getApiKey());
-                // System.out.println(report.getFileReport(responseUploadFile));
-                FileWriter wr1 = new FileWriter("FileReport.json");
+                System.out.println(report.getFileReport(responseUploadFile));
+                FileWriter wr1 = new FileWriter("Json_Report/FileReport.json");
                 wr1.write(report.getFileReport(responseUploadFile));
                 wr1.close();
 
@@ -43,21 +43,21 @@ public class VirusTotalAPI {
             case "2":
                 ScanUrl scanUrl = new ScanUrl(key.getApiKey(), "https://kenh14.vn");
                 String responseScanUrl = scanUrl.getResponse();
-                FileWriter wr2 = new FileWriter("UrlReport.json");
+                FileWriter wr2 = new FileWriter("Json_Report/UrlReport.json");
                 wr2.write(responseScanUrl);
                 wr2.close();
                 break;
             case "3":
                 ScanDomain scanDomain = new ScanDomain(key.getApiKey(), "www.xfer.com");
                 String responseScanDomain = scanDomain.getResponse();
-                FileWriter wr3 = new FileWriter("DomainReport.json");
+                FileWriter wr3 = new FileWriter("Json_Report/DomainReport.json");
                 wr3.write(responseScanDomain);
                 wr3.close();
                 break;
             case "4":
                 ScanIp scanIp = new ScanIp(key.getApiKey(), "93.174.89.224");
                 String responseScanIp = scanIp.getResponse();
-                FileWriter wr4 = new FileWriter("IpReport.json");
+                FileWriter wr4 = new FileWriter("Json_Report/IpReport.json");
                 wr4.write(responseScanIp);
                 wr4.close();
                 break;

@@ -1,0 +1,75 @@
+Tool: Bkav, Result: null
+Tool: Lionic, Result: "Test.File.EICAR.00x7"
+Tool: Elastic, Result: "eicar"
+Tool: DrWeb, Result: "EICAR Test File (NOT a Virus!)"
+Tool: MicroWorld-eScan, Result: "EICAR-Test-File"
+Tool: ClamAV, Result: "Win.Test.EICAR_HDB-1"
+Tool: FireEye, Result: "EICAR-Test-File (not a virus)"
+Tool: CAT-QuickHeal, Result: "EICAR.TestFile"
+Tool: McAfee, Result: "EICAR test file"
+Tool: Malwarebytes, Result: "EICAR-AV-Test"
+Tool: Zillya, Result: "EICAR.TestFile"
+Tool: Paloalto, Result: null
+Tool: Sangfor, Result: "EICAR-Test-File (not a virus)"
+Tool: Trustlook, Result: null
+Tool: Alibaba, Result: "Test:Any/EICAR.ee2a7594"
+Tool: K7GW, Result: "Trojan ( 0001140e1 )"
+Tool: K7AntiVirus, Result: "EICAR_Test_File"
+Tool: Arcabit, Result: "EICAR-Test-File (not a virus)"
+Tool: BitDefenderTheta, Result: "EICAR-Test-File (not a virus)"
+Tool: VirIT, Result: "EICAR-Test-File"
+Tool: Cyren, Result: "EICAR_Test_File"
+Tool: SymantecMobileInsight, Result: "AppRisk:Generisk"
+Tool: Symantec, Result: "EICAR Test String"
+Tool: tehtris, Result: null
+Tool: ESET-NOD32, Result: "Eicar test file"
+Tool: APEX, Result: null
+Tool: TrendMicro-HouseCall, Result: null
+Tool: Avast, Result: "EICAR Test-NOT virus!!!"
+Tool: Cynet, Result: "Malicious (score: 99)"
+Tool: Kaspersky, Result: "EICAR-Test-File"
+Tool: BitDefender, Result: "EICAR-Test-File (not a virus)"
+Tool: NANO-Antivirus, Result: "Marker.Dos.EICAR-Test-File.dyb"
+Tool: ViRobot, Result: "BIN.S.Eicar.184"
+Tool: Tencent, Result: "EICAR.TEST.NOT-A-VIRUS"
+Tool: Emsisoft, Result: "EICAR-Test-File (A)"
+Tool: F-Secure, Result: "EICAR_Test_File"
+Tool: Baidu, Result: "Win32.Test.Eicar.a"
+Tool: VIPRE, Result: "EICAR-Test-File (not a virus)"
+Tool: TrendMicro, Result: "Eicar_test_file"
+Tool: McAfee-GW-Edition, Result: "EICAR test file"
+Tool: Trapmine, Result: null
+Tool: CMC, Result: null
+Tool: Sophos, Result: "EICAR-AV-Test"
+Tool: SentinelOne, Result: "Static AI - Malicious Archive"
+Tool: Avast-Mobile, Result: "Eicar"
+Tool: Jiangmin, Result: "EICAR-Test-File"
+Tool: Webroot, Result: null
+Tool: Avira, Result: "Eicar-Test-Signature"
+Tool: MAX, Result: "malware (ai score=100)"
+Tool: Antiy-AVL, Result: "TestFile/Win32.EICAR"
+Tool: Gridinsoft, Result: "Trojan.U.EICAR_Test_File.oa"
+Tool: Xcitium, Result: "ApplicUnwnt@#27s8ewoxds1vr"
+Tool: Microsoft, Result: "Virus:DOS/EICAR_Test_File"
+Tool: SUPERAntiSpyware, Result: "NotAThreat.EICAR[TestFile]"
+Tool: ZoneAlarm, Result: "UDS:DangerousObject.Multi.Generic"
+Tool: GData, Result: "EICAR_TEST_FILE"
+Tool: Google, Result: "Detected"
+Tool: BitDefenderFalx, Result: null
+Tool: AhnLab-V3, Result: "Virus/EICAR_Test_File"
+Tool: Acronis, Result: null
+Tool: VBA32, Result: "EICAR-Test-File"
+Tool: ALYac, Result: null
+Tool: TACHYON, Result: null
+Tool: DeepInstinct, Result: null
+Tool: Cylance, Result: null
+Tool: Zoner, Result: "EICAR.Test.File-NoVirus.250"
+Tool: Rising, Result: "EICAR-Test-File (CLASSIC)"
+Tool: Yandex, Result: "EICAR_test_file"
+Tool: Ikarus, Result: "EICAR-Test-File"
+Tool: MaxSecure, Result: "VIRUS.EICAR.TEST"
+Tool: Fortinet, Result: "EICAR_TEST_FILE"
+Tool: AVG, Result: "EICAR Test-NOT virus!!!"
+Tool: Cybereason, Result: null
+Tool: Panda, Result: "EICAR-AV-TEST-FILE"
+Tool: CrowdStrike, Result: null
