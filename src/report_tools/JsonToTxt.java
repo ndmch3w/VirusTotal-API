@@ -42,11 +42,14 @@ public class JsonToTxt {
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath));
 
+        writer.write("Overall report (new Json): " + statsObject.toString() + "\n");
         for (String toolName : resultsObject.keySet()) {
             JsonObject toolObject = resultsObject.getAsJsonObject(toolName);
             JsonElement resultElement = toolObject.get("result");
+            JsonElement categoryElement = toolObject.get("category");
             String resultValue = resultElement.toString();
-            writer.write("Tool: " + toolName + ", Result: " + resultValue + "\n");
+            String categoryValue = categoryElement.toString();
+            writer.write("Tool: " + toolName + ", Category: " + categoryValue + ", Result: " + resultValue + "\n");
         }
 
         writer.close();
@@ -68,8 +71,10 @@ public class JsonToTxt {
         for (String toolName : resultsObject.keySet()) {
             JsonObject toolObject = resultsObject.getAsJsonObject(toolName);
             JsonElement resultElement = toolObject.get("result");
+            JsonElement categoryElement = toolObject.get("category");
             String resultValue = resultElement.toString();
-            writer.write("Tool: " + toolName + ", Result: " + resultValue + "\n");
+            String categoryValue = categoryElement.toString();
+            writer.write("Tool: " + toolName + ", Category: " + categoryValue + ", Result: " + resultValue + "\n");
         }
         writer.close();
     }
@@ -90,8 +95,10 @@ public class JsonToTxt {
         for (String toolName : resultsObject.keySet()) {
             JsonObject toolObject = resultsObject.getAsJsonObject(toolName);
             JsonElement resultElement = toolObject.get("result");
+            JsonElement categoryElement = toolObject.get("category");
             String resultValue = resultElement.toString();
-            writer.write("Tool: " + toolName + ", Result: " + resultValue + "\n");
+            String categoryValue = categoryElement.toString();
+            writer.write("Tool: " + toolName + ", Category: " + categoryValue + ", Result: " + resultValue + "\n");
         }
         writer.close();
     }
@@ -112,13 +119,15 @@ public class JsonToTxt {
         for (String toolName : resultsObject.keySet()) {
             JsonObject toolObject = resultsObject.getAsJsonObject(toolName);
             JsonElement resultElement = toolObject.get("result");
+            JsonElement categoryElement = toolObject.get("category");
             String resultValue = resultElement.toString();
-            writer.write("Tool: " + toolName + ", Result: " + resultValue + "\n");
+            String categoryValue = categoryElement.toString();
+            writer.write("Tool: " + toolName + ", Category: " + categoryValue + ", Result: " + resultValue + "\n");
         }
         writer.close();
     }
     public static void main(String[] args) throws IOException, JSONException {
-        JsonToTxt test = new JsonToTxt("Json_Report/IpReport.json", "Results_txt/IpReport.txt");
-        test.IpReportToExamine();
+        JsonToTxt test = new JsonToTxt("Json_Report/FileReport.json", "Results_txt/FileReport.txt");
+        test.FileReportToExamine();
     }
 }
