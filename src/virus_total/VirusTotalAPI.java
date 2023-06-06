@@ -46,7 +46,7 @@ public class VirusTotalAPI {
                 txtToPDF1.convert();
                 break;
             case "2":
-                ScanUrl scanUrl = new ScanUrl(key.getApiKey(), "https://kenh14.vn");
+                ScanUrl scanUrl = new ScanUrl(key.getApiKey(), "mp3raid.com/music/krizz_kaliko.html");
                 String responseScanUrl = scanUrl.getResponse();
                 FileWriter wr2 = new FileWriter("Json_Report/UrlReport.json");
                 wr2.write(responseScanUrl);

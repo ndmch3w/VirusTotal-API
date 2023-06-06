@@ -1,4 +1,4 @@
-Overall report (new Json): {"harmless":73,"malicious":0,"suspicious":0,"undetected":16,"timeout":0}
+Overall report (new Json): {"harmless":71,"malicious":2,"suspicious":0,"undetected":16,"timeout":0}
 Tool: Bkav, Category: "undetected", Result: "unrated"
 Tool: CMC Threat Intelligence, Category: "harmless", Result: "clean"
 Tool: Snort IP sample list, Category: "harmless", Result: "clean"
@@ -27,8 +27,8 @@ Tool: Fortinet, Category: "harmless", Result: "clean"
 Tool: alphaMountain.ai, Category: "harmless", Result: "clean"
 Tool: Lionic, Category: "harmless", Result: "clean"
 Tool: Cyble, Category: "harmless", Result: "clean"
-Tool: Seclookup, Category: "harmless", Result: "clean"
-Tool: Xcitium Verdict Cloud, Category: "harmless", Result: "clean"
+Tool: Seclookup, Category: "malicious", Result: "malicious"
+Tool: Xcitium Verdict Cloud, Category: "malicious", Result: "malicious"
 Tool: Artists Against 419, Category: "harmless", Result: "clean"
 Tool: Google Safebrowsing, Category: "harmless", Result: "clean"
 Tool: SafeToOpen, Category: "undetected", Result: "unrated"
