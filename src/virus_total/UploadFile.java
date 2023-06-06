@@ -41,7 +41,9 @@ public class UploadFile {
         FileInputStream fileInputStream = new FileInputStream(file);
         byte[] buffer = new byte[4096];
         int bytesRead;
-        while ((bytesRead = fileInputStream.read(buffer)) != -1) {
+        int offset = 0;
+        while ((bytesRead = fileInputStream.read(buffer, offset, buffer.length-offset)) != -1) {
+            System.out.println(bytesRead);
             outputStream.write(buffer, 0, bytesRead);
         }
         outputStream.flush();

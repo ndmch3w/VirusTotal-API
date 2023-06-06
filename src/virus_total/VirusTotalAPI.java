@@ -1,13 +1,15 @@
 package virus_total;
 
 import org.json.JSONException;
+import report_tools.JsonToTxt;
+import report_tools.TxtToPDF;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class VirusTotalAPI {
-    public static void main(String[] args) throws IOException, JSONException {
+    public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Input your VirusTotal API key for more options:");
@@ -28,7 +30,7 @@ public class VirusTotalAPI {
 
         switch (choice){
             case "1":
-                UploadFile upload = new UploadFile(key.getApiKey(), "Malware test files/eicar_com.zip");
+                UploadFile upload = new UploadFile(key.getApiKey(), "Malware test files/thitracnghiem.seb");
                 String responseUploadFile = upload.getResponseUploadFile();
 
                 FileReport report = new FileReport(key.getApiKey());
@@ -37,8 +39,11 @@ public class VirusTotalAPI {
                 wr1.write(report.getFileReport(responseUploadFile));
                 wr1.close();
 
-                /*JsonToCsv converter = new JsonToCsv("FileReport.json", "FileReport.csv");
-                converter.Execute();*/
+                JsonToTxt jsonToTxt1 = new JsonToTxt("Json_Report/FileReport.json", "Results_txt/FileReport.txt");
+                jsonToTxt1.FileReportToExamine();
+
+                TxtToPDF txtToPDF1 = new TxtToPDF("Results_txt/FileReport.txt", "Results_pdf/FileReport.pdf");
+                txtToPDF1.convert();
                 break;
             case "2":
                 ScanUrl scanUrl = new ScanUrl(key.getApiKey(), "https://kenh14.vn");
@@ -46,6 +51,12 @@ public class VirusTotalAPI {
                 FileWriter wr2 = new FileWriter("Json_Report/UrlReport.json");
                 wr2.write(responseScanUrl);
                 wr2.close();
+
+                JsonToTxt jsonToTxt2 = new JsonToTxt("Json_Report/UrlReport.json", "Results_txt/UrlReport.txt");
+                jsonToTxt2.UrlReportToExamine();
+
+                TxtToPDF txtToPDF2 = new TxtToPDF("Results_txt/UrlReport.txt", "Results_pdf/UrlReport.pdf");
+                txtToPDF2.convert();
                 break;
             case "3":
                 ScanDomain scanDomain = new ScanDomain(key.getApiKey(), "www.xfer.com");
@@ -53,6 +64,12 @@ public class VirusTotalAPI {
                 FileWriter wr3 = new FileWriter("Json_Report/DomainReport.json");
                 wr3.write(responseScanDomain);
                 wr3.close();
+
+                JsonToTxt jsonToTxt3 = new JsonToTxt("Json_Report/DomainReport.json", "Results_txt/DomainReport.txt");
+                jsonToTxt3.DomainReportToExamine();
+
+                TxtToPDF txtToPDF3 = new TxtToPDF("Results_txt/DomainReport.txt", "Results_pdf/DomainReport.pdf");
+                txtToPDF3.convert();
                 break;
             case "4":
                 ScanIp scanIp = new ScanIp(key.getApiKey(), "93.174.89.224");
@@ -60,6 +77,12 @@ public class VirusTotalAPI {
                 FileWriter wr4 = new FileWriter("Json_Report/IpReport.json");
                 wr4.write(responseScanIp);
                 wr4.close();
+
+                JsonToTxt jsonToTxt4 = new JsonToTxt("Json_Report/IpReport.json", "Results_txt/IpReport.txt");
+                jsonToTxt4.IpReportToExamine();
+
+                TxtToPDF txtToPDF4 = new TxtToPDF("Results_txt/IpReport.txt", "Results_pdf/IpReport.pdf");
+                txtToPDF4.convert();
                 break;
             default:
                 break;

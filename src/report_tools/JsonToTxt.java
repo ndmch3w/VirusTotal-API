@@ -19,6 +19,38 @@ public class JsonToTxt {
         this.jsonFilePath = jsonFile;
         this.txtFilePath = csvFile;
     }
+    public void normalExamine() throws IOException{
+        Gson gson = new Gson();
+        FileReader fileReader = new FileReader(jsonFilePath);
+
+        JsonObject jsonObject = gson.fromJson(fileReader, JsonObject.class);
+
+        // Overall results
+        JsonObject statsObject = jsonObject
+                .getAsJsonObject("data")
+                .getAsJsonObject("attributes")
+                .getAsJsonObject("last_analysis_stats");
+        System.out.println("Overall report (new Json): " + statsObject.toString());
+
+        // Detail results of different antivirus tools
+        JsonObject resultsObject = jsonObject
+                .getAsJsonObject("data")
+                .getAsJsonObject("attributes")
+                .getAsJsonObject("last_analysis_results");
+        System.out.println("Detailed report (new Json): " + resultsObject.toString());
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath));
+        writer.write("Overall report (new Json): " + statsObject.toString() + "\n");
+        for (String toolName : resultsObject.keySet()) {
+            JsonObject toolObject = resultsObject.getAsJsonObject(toolName);
+            JsonElement resultElement = toolObject.get("result");
+            JsonElement categoryElement = toolObject.get("category");
+            String resultValue = resultElement.toString();
+            String categoryValue = categoryElement.toString();
+            writer.write("Tool: " + toolName + ", Category: " + categoryValue + ", Result: " + resultValue + "\n");
+        }
+        writer.close();
+    }
 
     public void FileReportToExamine() throws IOException, JSONException {
         Gson gson = new Gson();
@@ -41,7 +73,6 @@ public class JsonToTxt {
         System.out.println("Detailed report (new Json): " + resultsObject.toString());
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath));
-
         writer.write("Overall report (new Json): " + statsObject.toString() + "\n");
         for (String toolName : resultsObject.keySet()) {
             JsonObject toolObject = resultsObject.getAsJsonObject(toolName);
@@ -51,83 +82,15 @@ public class JsonToTxt {
             String categoryValue = categoryElement.toString();
             writer.write("Tool: " + toolName + ", Category: " + categoryValue + ", Result: " + resultValue + "\n");
         }
-
         writer.close();
     }
     public void UrlReportToExamine() throws IOException, JSONException {
-        Gson gson = new Gson();
-        FileReader fileReader = new FileReader(jsonFilePath);
-
-        JsonObject jsonObject = gson.fromJson(fileReader, JsonObject.class);
-
-        // Detail results of different antivirus tools
-        JsonObject resultsObject = jsonObject
-                .getAsJsonObject("data")
-                .getAsJsonObject("attributes")
-                .getAsJsonObject("last_analysis_results");
-        System.out.println("Detailed report (new Json): " + resultsObject.toString());
-
-        BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath));
-        for (String toolName : resultsObject.keySet()) {
-            JsonObject toolObject = resultsObject.getAsJsonObject(toolName);
-            JsonElement resultElement = toolObject.get("result");
-            JsonElement categoryElement = toolObject.get("category");
-            String resultValue = resultElement.toString();
-            String categoryValue = categoryElement.toString();
-            writer.write("Tool: " + toolName + ", Category: " + categoryValue + ", Result: " + resultValue + "\n");
-        }
-        writer.close();
+        this.normalExamine();
     }
     public void DomainReportToExamine() throws IOException, JSONException {
-        Gson gson = new Gson();
-        FileReader fileReader = new FileReader(jsonFilePath);
-
-        JsonObject jsonObject = gson.fromJson(fileReader, JsonObject.class);
-
-        // Detail results of different antivirus tools
-        JsonObject resultsObject = jsonObject
-                .getAsJsonObject("data")
-                .getAsJsonObject("attributes")
-                .getAsJsonObject("last_analysis_results");
-        System.out.println("Detailed report (new Json): " + resultsObject.toString());
-
-        BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath));
-        for (String toolName : resultsObject.keySet()) {
-            JsonObject toolObject = resultsObject.getAsJsonObject(toolName);
-            JsonElement resultElement = toolObject.get("result");
-            JsonElement categoryElement = toolObject.get("category");
-            String resultValue = resultElement.toString();
-            String categoryValue = categoryElement.toString();
-            writer.write("Tool: " + toolName + ", Category: " + categoryValue + ", Result: " + resultValue + "\n");
-        }
-        writer.close();
+        this.normalExamine();
     }
     public void IpReportToExamine() throws IOException, JSONException {
-        Gson gson = new Gson();
-        FileReader fileReader = new FileReader(jsonFilePath);
-
-        JsonObject jsonObject = gson.fromJson(fileReader, JsonObject.class);
-
-        // Detail results of different antivirus tools
-        JsonObject resultsObject = jsonObject
-                .getAsJsonObject("data")
-                .getAsJsonObject("attributes")
-                .getAsJsonObject("last_analysis_results");
-        System.out.println("Detailed report (new Json): " + resultsObject.toString());
-
-        BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath));
-        for (String toolName : resultsObject.keySet()) {
-            JsonObject toolObject = resultsObject.getAsJsonObject(toolName);
-            JsonElement resultElement = toolObject.get("result");
-            JsonElement categoryElement = toolObject.get("category");
-            String resultValue = resultElement.toString();
-            String categoryValue = categoryElement.toString();
-            writer.write("Tool: " + toolName + ", Category: " + categoryValue + ", Result: " + resultValue + "\n");
-        }
-        writer.close();
-    }
-    public static void main(String[] args) throws IOException, JSONException {
-        JsonToTxt test = new JsonToTxt("Json_Report/FileReport.json", "Results_txt/FileReport.txt");
-        test.FileReportToExamine();
+        this.normalExamine();
     }
 }
