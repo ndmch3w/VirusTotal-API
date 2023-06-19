@@ -1,14 +1,16 @@
-package virus_total;
+package virustotal;
 
-import org.json.JSONException;
-import report_tools.JsonToTxt;
-import report_tools.TxtToPDF;
+import converter.JsonToTxt;
+import converter.TxtToPDF;
+import scanner.domain.ScanDomain;
+import scanner.file.ScanFile;
+import scanner.ip.ScanIp;
+import scanner.url.ScanUrl;
 
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
 
-public class VirusTotalAPI {
+public class Main {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
 
@@ -30,13 +32,9 @@ public class VirusTotalAPI {
 
         switch (choice){
             case "1":
-                UploadFile upload = new UploadFile(key.getApiKey(), "Malware test files/thitracnghiem.seb");
-                String responseUploadFile = upload.getResponseUploadFile();
-
-                FileReport report = new FileReport(key.getApiKey());
-                System.out.println(report.getFileReport(responseUploadFile));
+                ScanFile report = new ScanFile(key.getApiKey(), "Malware test files/wildfire-test-apk-file.apk");
                 FileWriter wr1 = new FileWriter("Json_Report/FileReport.json");
-                wr1.write(report.getFileReport(responseUploadFile));
+                wr1.write(report.getFileReport());
                 wr1.close();
 
                 JsonToTxt jsonToTxt1 = new JsonToTxt("Json_Report/FileReport.json", "Results_txt/FileReport.txt");

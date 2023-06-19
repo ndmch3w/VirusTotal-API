@@ -1,45 +1,22 @@
-package virus_total;
+package scanner.file;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.Gson;
+import java.security.NoSuchAlgorithmException;
 
-public class FileReport {
+public class ScanFile {
     private String apiKey;
-    public FileReport(String apiKey){
+    private String filePath;
+    public ScanFile(String apiKey, String filePath){
         this.apiKey = apiKey;
-    }
-    public class AnalysisResponse {
-        @SerializedName("data")
-        private AnalysisData data;
-        public AnalysisData getData() {
-            return data;
-        }
+        this.filePath = filePath;
     }
 
-    public class AnalysisData {
-        private String id;
-        public String getId() {
-            return id;
-        }
-    }
-    private String getId(String jsonResponse) {
-        Gson gson = new Gson();
-        AnalysisResponse gsonResponse = gson.fromJson(jsonResponse, AnalysisResponse.class);
-        String id = gsonResponse.getData().getId();
-
-        if (id.contains("==")) {
-            id = id.replace("==", "%3D%3D");
-        }
-        return id;
-    }
-    public String getFileReport(String jsonResponse) throws IOException {
-        String url = "https://www.virustotal.com/api/v3/analyses/" + getId(jsonResponse);
-        System.out.println(url);
+    public String getFileReport() throws IOException, NoSuchAlgorithmException {
+        String url = "https://www.virustotal.com/api/v3/files/" + FileHash.hash(filePath);
         URL apiUrl = new URL(url);
         HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();
         connection.setRequestMethod("GET");

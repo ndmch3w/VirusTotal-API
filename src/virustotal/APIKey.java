@@ -1,4 +1,4 @@
-package virus_total;
+package virustotal;
 
 public class APIKey {
     private String apiKey;

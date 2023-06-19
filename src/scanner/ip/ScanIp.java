@@ -1,4 +1,4 @@
-package virus_total;
+package scanner.ip;
 
 import java.io.BufferedReader;
 import java.io.IOException;
