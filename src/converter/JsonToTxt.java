@@ -30,24 +30,21 @@ public class JsonToTxt {
                 .getAsJsonObject("data")
                 .getAsJsonObject("attributes")
                 .getAsJsonObject("last_analysis_stats");
-        System.out.println("Overall report (new Json): " + statsObject.toString());
 
         // Detail results of different antivirus tools
         JsonObject resultsObject = jsonObject
                 .getAsJsonObject("data")
                 .getAsJsonObject("attributes")
                 .getAsJsonObject("last_analysis_results");
-        System.out.println("Detailed report (new Json): " + resultsObject.toString());
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath));
-        writer.write("Overall report (new Json): " + statsObject.toString() + "\n");
         for (String toolName : resultsObject.keySet()) {
             JsonObject toolObject = resultsObject.getAsJsonObject(toolName);
             JsonElement resultElement = toolObject.get("result");
             JsonElement categoryElement = toolObject.get("category");
             String resultValue = resultElement.toString();
             String categoryValue = categoryElement.toString();
-            writer.write("Tool: " + toolName + ", Category: " + categoryValue + ", Result: " + resultValue + "\n");
+            writer.write("Tool@@ " + toolName + ", Category@@ " + categoryValue + ", Result@@ " + resultValue + "\n");
         }
         writer.close();
     }
