@@ -1,9 +1,8 @@
-package converter;
+package tools;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import org.json.JSONException;
 
 
 import java.io.*;
@@ -12,14 +11,11 @@ public class JsonToTxt {
     private String jsonFilePath;
     private String txtFilePath;
 
-    public JsonToTxt(String jsonFilePath){
-        this.jsonFilePath = jsonFilePath;
-    }
     public JsonToTxt(String jsonFile, String csvFile){
         this.jsonFilePath = jsonFile;
         this.txtFilePath = csvFile;
     }
-    public void normalExamine() throws IOException{
+    public static void convert(String jsonFilePath, String txtFilePath) throws IOException{
         Gson gson = new Gson();
         FileReader fileReader = new FileReader(jsonFilePath);
 
@@ -47,18 +43,5 @@ public class JsonToTxt {
             writer.write("Tool@@ " + toolName + ", Category@@ " + categoryValue + ", Result@@ " + resultValue + "\n");
         }
         writer.close();
-    }
-
-    public void FileReportToExamine() throws IOException, JSONException {
-        this.normalExamine();
-    }
-    public void UrlReportToExamine() throws IOException, JSONException {
-        this.normalExamine();
-    }
-    public void DomainReportToExamine() throws IOException, JSONException {
-        this.normalExamine();
-    }
-    public void IpReportToExamine() throws IOException, JSONException {
-        this.normalExamine();
     }
 }

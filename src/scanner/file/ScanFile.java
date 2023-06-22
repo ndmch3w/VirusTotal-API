@@ -15,7 +15,7 @@ public class ScanFile {
         this.filePath = filePath;
     }
 
-    public String getFileReport() throws IOException, NoSuchAlgorithmException {
+    public static String getResponse(String apiKey, String filePath) throws IOException, NoSuchAlgorithmException {
         String url = "https://www.virustotal.com/api/v3/files/" + FileHash.hash(filePath);
         URL apiUrl = new URL(url);
         HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();

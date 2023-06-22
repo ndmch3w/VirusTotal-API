@@ -1,4 +1,4 @@
-package converter;
+package tools;
 
 import com.aspose.words.*;
 
@@ -11,11 +11,11 @@ public class TxtToPDF {
         this.pdfFilePath = pdfFilePath;
     }
 
-    public void convert() throws Exception {
+    public static void convert(String txtFilePath, String pdfFilePath) throws Exception {
         Document doc = new Document();
         DocumentBuilder builder = new DocumentBuilder(doc);
 
-        String[] lines = getTextLines();
+        String[] lines = getTextLines(txtFilePath);
         Table table = builder.startTable();
 
         // Add table headers
@@ -44,7 +44,7 @@ public class TxtToPDF {
         doc.save(pdfFilePath);
     }
 
-    private String[] getTextLines() throws Exception {
+    private static String[] getTextLines(String txtFilePath) throws Exception {
         java.nio.file.Path path = java.nio.file.Paths.get(txtFilePath);
         return java.nio.file.Files.lines(path).toArray(String[]::new);
     }
