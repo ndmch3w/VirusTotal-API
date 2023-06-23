@@ -16,7 +16,7 @@ public class ScanDomain {
         this.domain = domain;
     }
 
-    public String getResponse() throws IOException {
+    public static String getResponse(String apiKey, String domain) throws IOException {
         String url = "https://www.virustotal.com/api/v3/domains/" + domain;
         URL apiUrl = new URL(url);
 

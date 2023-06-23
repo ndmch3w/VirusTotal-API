@@ -15,7 +15,7 @@ public class ScanIp {
         this.ipAdress = ipAdress;
     }
 
-    public String getResponse() throws IOException{
+    public static String getResponse(String apiKey, String ipAdress) throws IOException{
         String url = "https://www.virustotal.com/api/v3/ip_addresses/" + ipAdress;
         URL apiUrl = new URL(url);
 

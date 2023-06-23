@@ -4,7 +4,6 @@ import tools.JsonToCsv;
 import tools.JsonToTxt;
 import tools.TxtToPDF;
 import scanner.domain.ScanDomain;
-import scanner.file.ScanBigFile;
 import scanner.file.ScanFile;
 import scanner.ip.ScanIp;
 import scanner.url.ScanUrl;
@@ -20,11 +19,10 @@ public class Main {
         String apiKey = sc.next();
 
         System.out.println("Choose your option:");
-        System.out.println("1. Upload and Scan file");
+        System.out.println("1. Upload and Scan file (<650mb)");
         System.out.println("2. Scan URL");
         System.out.println("3. Scan domain name");
         System.out.println("4. Scan IP address");
-        System.out.println("5. Scan large file (>32mb)");
         System.out.println("0. Exit");
 
         System.out.println("Type in your selection (e.g. '1'):");
@@ -34,7 +32,8 @@ public class Main {
 
         switch (choice){
             case "1":
-                String responseScanFile = ScanFile.getResponse(apiKey, "Malware test files/wildfire-test-apk-file.apk");
+                //String responseScanFile = ScanFile.getResponse(apiKey, "Malware test files/wildfire-test-apk-file.apk");
+                String responseScanFile = ScanFile.getResponse(apiKey, "C:\\Users\\DELL\\Downloads\\ideaIC-2023.1.1.exe");
 
                 FileWriter wr1 = new FileWriter("Json_Report/FileReport.json");
                 wr1.write(responseScanFile);
@@ -47,8 +46,7 @@ public class Main {
                 JsonToCsv.convert("Json_Report/FileReport.json", "Results_csv/FileReport.csv");
                 break;
             case "2":
-                ScanUrl scanUrl = new ScanUrl(apiKey, "mp3raid.com/music/krizz_kaliko.html");
-                String responseScanUrl = scanUrl.getResponse();
+                String responseScanUrl = ScanUrl.getResponse(apiKey, "hxxp://www.malwaredomainlist.com/");
                 FileWriter wr2 = new FileWriter("Json_Report/UrlReport.json");
                 wr2.write(responseScanUrl);
                 wr2.close();
@@ -60,8 +58,8 @@ public class Main {
                 JsonToCsv.convert("Json_Report/UrlReport.json", "Results_csv/UrlReport.csv");
                 break;
             case "3":
-                ScanDomain scanDomain = new ScanDomain(apiKey, "www.xfer.com");
-                String responseScanDomain = scanDomain.getResponse();
+                String responseScanDomain = ScanDomain.getResponse(apiKey, "malwaredomainlist.com");
+
                 FileWriter wr3 = new FileWriter("Json_Report/DomainReport.json");
                 wr3.write(responseScanDomain);
                 wr3.close();
@@ -73,8 +71,8 @@ public class Main {
                 JsonToCsv.convert("Json_Report/DomainReport.json", "Results_csv/DomainReport.csv");
                 break;
             case "4":
-                ScanIp scanIp = new ScanIp(apiKey, "93.174.89.224");
-                String responseScanIp = scanIp.getResponse();
+                String responseScanIp = ScanIp.getResponse(apiKey, "93.174.89.224");
+
                 FileWriter wr4 = new FileWriter("Json_Report/IpReport.json");
                 wr4.write(responseScanIp);
                 wr4.close();
@@ -84,26 +82,6 @@ public class Main {
                 TxtToPDF.convert("Results_txt/IpReport.txt", "Results_pdf/IpReport.pdf");
 
                 JsonToCsv.convert("Json_Report/IpReport.json", "Results_csv/IpReport.csv");
-                break;
-            case "5":
-                String uploadURL = ScanBigFile.getUploadURL(apiKey);
-
-                String analysisID= ScanBigFile.getAnalysisID(apiKey, uploadURL,
-                        "C:\\Users\\DELL\\Downloads\\jdk-17_windows-x64_bin.exe");
-
-                String md5Hash = ScanBigFile.getFileHash(apiKey, analysisID);
-
-                String responseScanBigFile = ScanBigFile.getResponse(apiKey, md5Hash);
-
-                FileWriter wr5 = new FileWriter("Json_Report/BigFileReport.json");
-                wr5.write(responseScanBigFile);
-                wr5.close();
-
-                JsonToTxt.convert("Json_Report/BigFileReport.json", "Results_txt/BigFileReport.txt");
-
-                TxtToPDF.convert("Results_txt/BigFileReport.txt", "Results_pdf/BigFileReport.pdf");
-
-                JsonToCsv.convert("Json_Report/BigFileReport.json", "Results_csv/BigFileReport.csv");
                 break;
             default:
                 break;

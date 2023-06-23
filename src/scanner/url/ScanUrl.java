@@ -18,7 +18,7 @@ public class ScanUrl {
         this.urlToScan = urlToScan;
     }
 
-    private String getUrlId(){
+    private static String getUrlId(String urlToScan){
         String url = urlToScan;
         byte[] urlBytes = url.getBytes();
 
@@ -28,9 +28,9 @@ public class ScanUrl {
         return encodedUrl;
     }
 
-    public String getResponse() throws IOException {
+    public static String getResponse(String apiKey, String urlToScan) throws IOException {
         //System.out.println(getUrlId());
-        String url = "https://www.virustotal.com/api/v3/urls/" + getUrlId();
+        String url = "https://www.virustotal.com/api/v3/urls/" + getUrlId(urlToScan);
         URL apiUrl = new URL(url);
 
         HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();
