@@ -10,15 +10,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../ProjectJarFiles/okhttp-4.10.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://$MODULE_DIR$/../ProjectJarFiles/gson-2.10.1.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -67,6 +58,24 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../ProjectJarFiles/aspose-words-23.5-jdk17.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../ProjectJarFiles/commons-csv-1.10.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../ProjectJarFiles/jfreechart-1.5.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

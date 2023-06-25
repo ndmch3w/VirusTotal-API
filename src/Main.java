@@ -1,5 +1,4 @@
-package virustotal;
-
+import tools.GenGraph;
 import tools.JsonToCsv;
 import tools.JsonToTxt;
 import tools.TxtToPDF;
@@ -44,6 +43,8 @@ public class Main {
                 TxtToPDF.convert("Results_txt/FileReport.txt", "Results_pdf/FileReport.pdf");
 
                 JsonToCsv.convert("Json_Report/FileReport.json", "Results_csv/FileReport.csv");
+
+                GenGraph.generate("Results_csv/FileReport.csv", "Charts/FileChart.png");
                 break;
             case "2":
                 String responseScanUrl = ScanUrl.getResponse(apiKey, "hxxp://www.malwaredomainlist.com/");
