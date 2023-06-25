@@ -16,8 +16,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GenGraph {
-    private String csvFilePath;
-    private String chartFilePath;
     public static void generate(String csvFilePath, String chartFilePath) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 

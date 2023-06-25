@@ -2,15 +2,11 @@ package tools;
 
 import com.aspose.words.*;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class TxtToPDF {
-    private String txtFilePath;
-    private String pdfFilePath;
-
-    public TxtToPDF(String txtFilePath, String pdfFilePath){
-        this.txtFilePath = txtFilePath;
-        this.pdfFilePath = pdfFilePath;
-    }
-
     public static void convert(String txtFilePath, String pdfFilePath) throws Exception {
         Document doc = new Document();
         DocumentBuilder builder = new DocumentBuilder(doc);
@@ -45,8 +41,8 @@ public class TxtToPDF {
     }
 
     private static String[] getTextLines(String txtFilePath) throws Exception {
-        java.nio.file.Path path = java.nio.file.Paths.get(txtFilePath);
-        return java.nio.file.Files.lines(path).toArray(String[]::new);
+        Path path = Paths.get(txtFilePath);
+        return Files.lines(path).toArray(String[]::new);
     }
 }
 
