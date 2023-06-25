@@ -2,10 +2,10 @@ import tools.GenGraph;
 import tools.JsonToCsv;
 import tools.JsonToTxt;
 import tools.TxtToPDF;
-import scanner.domain.ScanDomain;
-import scanner.file.ScanFile;
-import scanner.ip.ScanIp;
-import scanner.url.ScanUrl;
+import scanner.ScanDomain;
+import scanner.ScanFile;
+import scanner.ScanIp;
+import scanner.ScanUrl;
 
 import java.io.FileWriter;
 import java.util.Scanner;
@@ -32,7 +32,8 @@ public class Main {
         switch (choice){
             case "1":
                 //String responseScanFile = ScanFile.getResponse(apiKey, "Malware test files/wildfire-test-apk-file.apk");
-                String responseScanFile = ScanFile.getResponse(apiKey, "C:\\Users\\DELL\\Downloads\\ideaIC-2023.1.1.exe");
+                ScanFile fileScanner = new ScanFile(apiKey, "C:\\Users\\DELL\\Downloads\\ideaIC-2023.1.1.exe");
+                String responseScanFile = fileScanner.getResponse();
 
                 FileWriter wr1 = new FileWriter("Json_Report/FileReport.json");
                 wr1.write(responseScanFile);
@@ -47,7 +48,9 @@ public class Main {
                 GenGraph.generate("Results_csv/FileReport.csv", "Charts/FileChart.png");
                 break;
             case "2":
-                String responseScanUrl = ScanUrl.getResponse(apiKey, "hxxp://www.malwaredomainlist.com/");
+                ScanUrl urlScanner = new ScanUrl(apiKey, "hxxp://www.malwaredomainlist.com/");
+                String responseScanUrl = urlScanner.getResponse();
+
                 FileWriter wr2 = new FileWriter("Json_Report/UrlReport.json");
                 wr2.write(responseScanUrl);
                 wr2.close();
@@ -59,7 +62,8 @@ public class Main {
                 JsonToCsv.convert("Json_Report/UrlReport.json", "Results_csv/UrlReport.csv");
                 break;
             case "3":
-                String responseScanDomain = ScanDomain.getResponse(apiKey, "malwaredomainlist.com");
+                ScanDomain domainScanner = new ScanDomain(apiKey, "malwaredomainlist.com");
+                String responseScanDomain = domainScanner.getResponse();
 
                 FileWriter wr3 = new FileWriter("Json_Report/DomainReport.json");
                 wr3.write(responseScanDomain);
@@ -72,7 +76,8 @@ public class Main {
                 JsonToCsv.convert("Json_Report/DomainReport.json", "Results_csv/DomainReport.csv");
                 break;
             case "4":
-                String responseScanIp = ScanIp.getResponse(apiKey, "93.174.89.224");
+                ScanIp ipScanner = new ScanIp(apiKey, "93.174.89.224");
+                String responseScanIp = ipScanner.getResponse();
 
                 FileWriter wr4 = new FileWriter("Json_Report/IpReport.json");
                 wr4.write(responseScanIp);

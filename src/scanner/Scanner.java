@@ -1,4 +1,4 @@
-package scanner.ip;
+package scanner;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,30 +6,28 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class ScanIp {
-    private String apiKey;
-    private String ipAdress;
+public abstract class Scanner {
+    protected String apiKey;
+    protected String endpointUrl;
 
-    public ScanIp(String apiKey, String ipAdress){
+    public Scanner(String apiKey, String endpointUrl) {
         this.apiKey = apiKey;
-        this.ipAdress = ipAdress;
+        this.endpointUrl = endpointUrl;
     }
 
-    public static String getResponse(String apiKey, String ipAdress) throws IOException{
-        String url = "https://www.virustotal.com/api/v3/ip_addresses/" + ipAdress;
-        URL apiUrl = new URL(url);
-
+    public String getResponse() throws IOException {
+        URL apiUrl = new URL(endpointUrl);
         HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();
         connection.setRequestMethod("GET");
         connection.setRequestProperty("accept", "application/json");
         connection.setRequestProperty("x-apikey", apiKey);
 
         int responseCode = connection.getResponseCode();
-        if (responseCode == HttpURLConnection.HTTP_OK){
+        if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
             StringBuilder response = new StringBuilder();
-            while ((line = reader.readLine()) != null){
+            while ((line = reader.readLine()) != null) {
                 response.append(line);
             }
             reader.close();
@@ -37,7 +35,7 @@ public class ScanIp {
             String res = response.toString();
             connection.disconnect();
             return res;
-        }else{
+        } else {
             BufferedReader errorReader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
             String line;
             StringBuilder errorResponse = new StringBuilder();
