@@ -27,13 +27,13 @@ public class JsonToTxt {
                 .getAsJsonObject("last_analysis_results");
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath));
-        for (String toolName : resultsObject.keySet()) {
-            JsonObject toolObject = resultsObject.getAsJsonObject(toolName);
-            JsonElement resultElement = toolObject.get("result");
-            JsonElement categoryElement = toolObject.get("category");
+        for (String engineName : resultsObject.keySet()) {
+            JsonObject engineObject = resultsObject.getAsJsonObject(engineName);
+            JsonElement resultElement = engineObject.get("result");
+            JsonElement categoryElement = engineObject.get("category");
             String resultValue = resultElement.toString();
             String categoryValue = categoryElement.toString();
-            writer.write("Tool@@ " + toolName + ", Category@@ " + categoryValue + ", Result@@ " + resultValue + "\n");
+            writer.write("Engine name@@ " + engineName + ", Category@@ " + categoryValue + ", Result@@ " + resultValue + "\n");
         }
         writer.close();
     }

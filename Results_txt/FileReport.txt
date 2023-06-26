@@ -1,74 +1,74 @@
-Tool@@ Bkav, Category@@ "undetected", Result@@ null
-Tool@@ Lionic, Category@@ "undetected", Result@@ null
-Tool@@ tehtris, Category@@ "confirmed-timeout", Result@@ null
-Tool@@ DrWeb, Category@@ "timeout", Result@@ null
-Tool@@ MicroWorld-eScan, Category@@ "undetected", Result@@ null
-Tool@@ CMC, Category@@ "undetected", Result@@ null
-Tool@@ CAT-QuickHeal, Category@@ "timeout", Result@@ null
-Tool@@ McAfee, Category@@ "timeout", Result@@ null
-Tool@@ ALYac, Category@@ "timeout", Result@@ null
-Tool@@ Malwarebytes, Category@@ "undetected", Result@@ null
-Tool@@ VIPRE, Category@@ "timeout", Result@@ null
-Tool@@ Sangfor, Category@@ "undetected", Result@@ null
-Tool@@ CrowdStrike, Category@@ "undetected", Result@@ null
-Tool@@ BitDefender, Category@@ "timeout", Result@@ null
-Tool@@ K7GW, Category@@ "timeout", Result@@ null
-Tool@@ K7AntiVirus, Category@@ "timeout", Result@@ null
-Tool@@ Arcabit, Category@@ "failure", Result@@ null
-Tool@@ Baidu, Category@@ "undetected", Result@@ null
-Tool@@ VirIT, Category@@ "undetected", Result@@ null
-Tool@@ Cyren, Category@@ "timeout", Result@@ null
-Tool@@ SymantecMobileInsight, Category@@ "type-unsupported", Result@@ null
-Tool@@ Symantec, Category@@ "undetected", Result@@ null
-Tool@@ Elastic, Category@@ "type-unsupported", Result@@ null
-Tool@@ ESET-NOD32, Category@@ "timeout", Result@@ null
-Tool@@ Cynet, Category@@ "type-unsupported", Result@@ null
-Tool@@ APEX, Category@@ "undetected", Result@@ null
-Tool@@ Paloalto, Category@@ "undetected", Result@@ null
-Tool@@ ClamAV, Category@@ "undetected", Result@@ null
-Tool@@ Kaspersky, Category@@ "timeout", Result@@ null
-Tool@@ Alibaba, Category@@ "undetected", Result@@ null
-Tool@@ NANO-Antivirus, Category@@ "timeout", Result@@ null
-Tool@@ ViRobot, Category@@ "undetected", Result@@ null
-Tool@@ Rising, Category@@ "timeout", Result@@ null
-Tool@@ Trustlook, Category@@ "type-unsupported", Result@@ null
-Tool@@ Emsisoft, Category@@ "timeout", Result@@ null
-Tool@@ F-Secure, Category@@ "timeout", Result@@ null
-Tool@@ BitDefenderTheta, Category@@ "timeout", Result@@ null
-Tool@@ Zillya, Category@@ "undetected", Result@@ null
-Tool@@ TrendMicro, Category@@ "timeout", Result@@ null
-Tool@@ McAfee-GW-Edition, Category@@ "timeout", Result@@ null
-Tool@@ Trapmine, Category@@ "undetected", Result@@ null
-Tool@@ FireEye, Category@@ "timeout", Result@@ null
-Tool@@ Sophos, Category@@ "undetected", Result@@ null
-Tool@@ SentinelOne, Category@@ "undetected", Result@@ null
-Tool@@ Avast-Mobile, Category@@ "type-unsupported", Result@@ null
-Tool@@ Jiangmin, Category@@ "timeout", Result@@ null
-Tool@@ Webroot, Category@@ "failure", Result@@ null
-Tool@@ Avira, Category@@ "undetected", Result@@ null
-Tool@@ MAX, Category@@ "timeout", Result@@ null
-Tool@@ Antiy-AVL, Category@@ "undetected", Result@@ null
-Tool@@ Gridinsoft, Category@@ "undetected", Result@@ null
-Tool@@ Xcitium, Category@@ "timeout", Result@@ null
-Tool@@ Microsoft, Category@@ "undetected", Result@@ null
-Tool@@ SUPERAntiSpyware, Category@@ "undetected", Result@@ null
-Tool@@ ZoneAlarm, Category@@ "timeout", Result@@ null
-Tool@@ GData, Category@@ "timeout", Result@@ null
-Tool@@ Google, Category@@ "timeout", Result@@ null
-Tool@@ BitDefenderFalx, Category@@ "type-unsupported", Result@@ null
-Tool@@ AhnLab-V3, Category@@ "undetected", Result@@ null
-Tool@@ Acronis, Category@@ "timeout", Result@@ null
-Tool@@ VBA32, Category@@ "undetected", Result@@ null
-Tool@@ TACHYON, Category@@ "undetected", Result@@ null
-Tool@@ DeepInstinct, Category@@ "failure", Result@@ null
-Tool@@ Cylance, Category@@ "confirmed-timeout", Result@@ null
-Tool@@ Panda, Category@@ "timeout", Result@@ null
-Tool@@ Zoner, Category@@ "undetected", Result@@ null
-Tool@@ TrendMicro-HouseCall, Category@@ "undetected", Result@@ null
-Tool@@ Tencent, Category@@ "undetected", Result@@ null
-Tool@@ Yandex, Category@@ "timeout", Result@@ null
-Tool@@ Ikarus, Category@@ "undetected", Result@@ null
-Tool@@ MaxSecure, Category@@ "undetected", Result@@ null
-Tool@@ Fortinet, Category@@ "confirmed-timeout", Result@@ null
-Tool@@ AVG, Category@@ "timeout", Result@@ null
-Tool@@ Avast, Category@@ "timeout", Result@@ null
+Engine name@@ Bkav, Category@@ "undetected", Result@@ null
+Engine name@@ Lionic, Category@@ "undetected", Result@@ null
+Engine name@@ tehtris, Category@@ "confirmed-timeout", Result@@ null
+Engine name@@ DrWeb, Category@@ "timeout", Result@@ null
+Engine name@@ MicroWorld-eScan, Category@@ "undetected", Result@@ null
+Engine name@@ CMC, Category@@ "undetected", Result@@ null
+Engine name@@ CAT-QuickHeal, Category@@ "timeout", Result@@ null
+Engine name@@ McAfee, Category@@ "timeout", Result@@ null
+Engine name@@ ALYac, Category@@ "timeout", Result@@ null
+Engine name@@ Malwarebytes, Category@@ "undetected", Result@@ null
+Engine name@@ VIPRE, Category@@ "timeout", Result@@ null
+Engine name@@ Sangfor, Category@@ "undetected", Result@@ null
+Engine name@@ CrowdStrike, Category@@ "undetected", Result@@ null
+Engine name@@ BitDefender, Category@@ "timeout", Result@@ null
+Engine name@@ K7GW, Category@@ "timeout", Result@@ null
+Engine name@@ K7AntiVirus, Category@@ "timeout", Result@@ null
+Engine name@@ Arcabit, Category@@ "failure", Result@@ null
+Engine name@@ Baidu, Category@@ "undetected", Result@@ null
+Engine name@@ VirIT, Category@@ "undetected", Result@@ null
+Engine name@@ Cyren, Category@@ "timeout", Result@@ null
+Engine name@@ SymantecMobileInsight, Category@@ "type-unsupported", Result@@ null
+Engine name@@ Symantec, Category@@ "undetected", Result@@ null
+Engine name@@ Elastic, Category@@ "type-unsupported", Result@@ null
+Engine name@@ ESET-NOD32, Category@@ "timeout", Result@@ null
+Engine name@@ Cynet, Category@@ "type-unsupported", Result@@ null
+Engine name@@ APEX, Category@@ "undetected", Result@@ null
+Engine name@@ Paloalto, Category@@ "undetected", Result@@ null
+Engine name@@ ClamAV, Category@@ "undetected", Result@@ null
+Engine name@@ Kaspersky, Category@@ "timeout", Result@@ null
+Engine name@@ Alibaba, Category@@ "undetected", Result@@ null
+Engine name@@ NANO-Antivirus, Category@@ "timeout", Result@@ null
+Engine name@@ ViRobot, Category@@ "undetected", Result@@ null
+Engine name@@ Rising, Category@@ "timeout", Result@@ null
+Engine name@@ Trustlook, Category@@ "type-unsupported", Result@@ null
+Engine name@@ Emsisoft, Category@@ "timeout", Result@@ null
+Engine name@@ F-Secure, Category@@ "timeout", Result@@ null
+Engine name@@ BitDefenderTheta, Category@@ "timeout", Result@@ null
+Engine name@@ Zillya, Category@@ "undetected", Result@@ null
+Engine name@@ TrendMicro, Category@@ "timeout", Result@@ null
+Engine name@@ McAfee-GW-Edition, Category@@ "timeout", Result@@ null
+Engine name@@ Trapmine, Category@@ "undetected", Result@@ null
+Engine name@@ FireEye, Category@@ "timeout", Result@@ null
+Engine name@@ Sophos, Category@@ "undetected", Result@@ null
+Engine name@@ SentinelOne, Category@@ "undetected", Result@@ null
+Engine name@@ Avast-Mobile, Category@@ "type-unsupported", Result@@ null
+Engine name@@ Jiangmin, Category@@ "timeout", Result@@ null
+Engine name@@ Webroot, Category@@ "failure", Result@@ null
+Engine name@@ Avira, Category@@ "undetected", Result@@ null
+Engine name@@ MAX, Category@@ "timeout", Result@@ null
+Engine name@@ Antiy-AVL, Category@@ "undetected", Result@@ null
+Engine name@@ Gridinsoft, Category@@ "undetected", Result@@ null
+Engine name@@ Xcitium, Category@@ "timeout", Result@@ null
+Engine name@@ Microsoft, Category@@ "undetected", Result@@ null
+Engine name@@ SUPERAntiSpyware, Category@@ "undetected", Result@@ null
+Engine name@@ ZoneAlarm, Category@@ "timeout", Result@@ null
+Engine name@@ GData, Category@@ "timeout", Result@@ null
+Engine name@@ Google, Category@@ "timeout", Result@@ null
+Engine name@@ BitDefenderFalx, Category@@ "type-unsupported", Result@@ null
+Engine name@@ AhnLab-V3, Category@@ "undetected", Result@@ null
+Engine name@@ Acronis, Category@@ "timeout", Result@@ null
+Engine name@@ VBA32, Category@@ "undetected", Result@@ null
+Engine name@@ TACHYON, Category@@ "undetected", Result@@ null
+Engine name@@ DeepInstinct, Category@@ "failure", Result@@ null
+Engine name@@ Cylance, Category@@ "confirmed-timeout", Result@@ null
+Engine name@@ Panda, Category@@ "timeout", Result@@ null
+Engine name@@ Zoner, Category@@ "undetected", Result@@ null
+Engine name@@ TrendMicro-HouseCall, Category@@ "undetected", Result@@ null
+Engine name@@ Tencent, Category@@ "undetected", Result@@ null
+Engine name@@ Yandex, Category@@ "timeout", Result@@ null
+Engine name@@ Ikarus, Category@@ "undetected", Result@@ null
+Engine name@@ MaxSecure, Category@@ "undetected", Result@@ null
+Engine name@@ Fortinet, Category@@ "confirmed-timeout", Result@@ null
+Engine name@@ AVG, Category@@ "timeout", Result@@ null
+Engine name@@ Avast, Category@@ "timeout", Result@@ null

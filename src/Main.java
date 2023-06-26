@@ -31,8 +31,10 @@ public class Main {
 
         switch (choice){
             case "1":
-                //String responseScanFile = ScanFile.getResponse(apiKey, "Malware test files/wildfire-test-apk-file.apk");
-                ScanFile fileScanner = new ScanFile(apiKey, "C:\\Users\\DELL\\Downloads\\ideaIC-2023.1.1.exe");
+                // ("Malware test files/wildfire-test-apk-file.apk");
+                String filePath = "C:\\Users\\DELL\\Downloads\\ideaIC-2023.1.1.exe";
+
+                ScanFile fileScanner = new ScanFile(apiKey, filePath);
                 String responseScanFile = fileScanner.getResponse();
 
                 FileWriter wr1 = new FileWriter("Json_Report/FileReport.json");
@@ -41,14 +43,17 @@ public class Main {
 
                 JsonToTxt.convert("Json_Report/FileReport.json", "Results_txt/FileReport.txt");
 
-                TxtToPDF.convert("Results_txt/FileReport.txt", "Results_pdf/FileReport.pdf");
-
                 JsonToCsv.convert("Json_Report/FileReport.json", "Results_csv/FileReport.csv");
 
                 GenGraph.generate("Results_csv/FileReport.csv", "Charts/FileChart.png");
+
+                TxtToPDF.convert("Results_txt/FileReport.txt", "Results_pdf/FileReport.pdf",
+                        "Charts/FileChart.png");
                 break;
             case "2":
-                ScanUrl urlScanner = new ScanUrl(apiKey, "hxxp://www.malwaredomainlist.com/");
+                String url = "hxxp://www.malwaredomainlist.com/";
+
+                ScanUrl urlScanner = new ScanUrl(apiKey, url);
                 String responseScanUrl = urlScanner.getResponse();
 
                 FileWriter wr2 = new FileWriter("Json_Report/UrlReport.json");
@@ -57,12 +62,17 @@ public class Main {
 
                 JsonToTxt.convert("Json_Report/UrlReport.json", "Results_txt/UrlReport.txt");
 
-                TxtToPDF.convert("Results_txt/UrlReport.txt", "Results_pdf/UrlReport.pdf");
-
                 JsonToCsv.convert("Json_Report/UrlReport.json", "Results_csv/UrlReport.csv");
+
+                GenGraph.generate("Results_csv/UrlReport.csv", "Charts/UrlChart.png");
+
+                TxtToPDF.convert("Results_txt/UrlReport.txt", "Results_pdf/UrlReport.pdf",
+                        "Charts/UrlChart.png");
                 break;
             case "3":
-                ScanDomain domainScanner = new ScanDomain(apiKey, "malwaredomainlist.com");
+                String domain = "malwaredomainlist.com";
+
+                ScanDomain domainScanner = new ScanDomain(apiKey, domain);
                 String responseScanDomain = domainScanner.getResponse();
 
                 FileWriter wr3 = new FileWriter("Json_Report/DomainReport.json");
@@ -71,12 +81,17 @@ public class Main {
 
                 JsonToTxt.convert("Json_Report/DomainReport.json", "Results_txt/DomainReport.txt");
 
-                TxtToPDF.convert("Results_txt/DomainReport.txt", "Results_pdf/DomainReport.pdf");
-
                 JsonToCsv.convert("Json_Report/DomainReport.json", "Results_csv/DomainReport.csv");
+
+                GenGraph.generate("Results_csv/DomainReport.csv", "Charts/DomainChart.png");
+
+                TxtToPDF.convert("Results_txt/DomainReport.txt", "Results_pdf/DomainReport.pdf",
+                        "Charts/DomainChart.png");
                 break;
             case "4":
-                ScanIp ipScanner = new ScanIp(apiKey, "93.174.89.224");
+                String ipAddress = "93.174.89.224";
+
+                ScanIp ipScanner = new ScanIp(apiKey, ipAddress);
                 String responseScanIp = ipScanner.getResponse();
 
                 FileWriter wr4 = new FileWriter("Json_Report/IpReport.json");
@@ -85,9 +100,12 @@ public class Main {
 
                 JsonToTxt.convert("Json_Report/IpReport.json", "Results_txt/IpReport.txt");
 
-                TxtToPDF.convert("Results_txt/IpReport.txt", "Results_pdf/IpReport.pdf");
-
                 JsonToCsv.convert("Json_Report/IpReport.json", "Results_csv/IpReport.csv");
+
+                GenGraph.generate("Results_csv/IpReport.csv", "Charts/IpChart.png");
+
+                TxtToPDF.convert("Results_txt/IpReport.txt", "Results_pdf/IpReport.pdf",
+                        "Charts/IpChart.png");
                 break;
             default:
                 break;
