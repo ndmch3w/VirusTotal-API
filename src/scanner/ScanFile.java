@@ -18,7 +18,7 @@ public class ScanFile extends Scanner {
 
     private static String hash(String filePath) throws NoSuchAlgorithmException{
         try (BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(filePath))) {
-            MessageDigest digest = MessageDigest.getInstance("MD5");
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] buffer = new byte[4096];
             int bytesRead;
 

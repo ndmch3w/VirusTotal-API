@@ -9,7 +9,10 @@ import scanner.ScanFile;
 import scanner.ScanIp;
 import scanner.ScanUrl;
 
+import java.io.FileInputStream;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.Scanner;
 
 public class Main {
@@ -97,8 +100,14 @@ public class Main {
                 }
                 break;
             case "4":
-                String ipAddress = "93.174.89.224";
+                Properties properties = new Properties();
+                try (FileInputStream fis = new FileInputStream("config.properties")) {
+                    properties.load(fis);
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
 
+                String ipAddress = properties.getProperty("ipAddress");
                 ScanIp ipScanner = new ScanIp(apiKey, ipAddress);
                 String responseScanIp = ipScanner.getResponse();
                 String newFilePath4 = "Json_Report/IpReport.json";
