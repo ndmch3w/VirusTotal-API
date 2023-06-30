@@ -10,7 +10,7 @@ public abstract class Scanner {
     protected String apiKey;
     protected String endpointUrl;
 
-    public Scanner(String apiKey, String endpointUrl) {
+    protected Scanner(String apiKey, String endpointUrl) {
         this.apiKey = apiKey;
         this.endpointUrl = endpointUrl;
     }

@@ -1,6 +1,5 @@
 package scanner;
 
-import scanner.Scanner;
 
 import java.util.Base64;
 

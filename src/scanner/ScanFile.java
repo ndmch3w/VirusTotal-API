@@ -1,6 +1,5 @@
 package scanner;
 
-import scanner.Scanner;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -31,7 +30,7 @@ public class ScanFile extends Scanner {
             BigInteger hashValue = new BigInteger(1, hash);
             return hashValue.toString(16);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return null;
     }

@@ -8,7 +8,7 @@ import com.google.gson.JsonObject;
 import java.io.*;
 
 public class JsonToTxt {
-    public static void convert(String jsonFilePath, String txtFilePath) throws IOException{
+    public static void convert(String jsonFilePath, String txtFilePath) throws IOException {
         Gson gson = new Gson();
         FileReader fileReader = new FileReader(jsonFilePath);
 
@@ -26,15 +26,17 @@ public class JsonToTxt {
                 .getAsJsonObject("attributes")
                 .getAsJsonObject("last_analysis_results");
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath));
-        for (String engineName : resultsObject.keySet()) {
-            JsonObject engineObject = resultsObject.getAsJsonObject(engineName);
-            JsonElement resultElement = engineObject.get("result");
-            JsonElement categoryElement = engineObject.get("category");
-            String resultValue = resultElement.toString();
-            String categoryValue = categoryElement.toString();
-            writer.write("Engine name@@ " + engineName + ", Category@@ " + categoryValue + ", Result@@ " + resultValue + "\n");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath))) {
+            for (String engineName : resultsObject.keySet()) {
+                JsonObject engineObject = resultsObject.getAsJsonObject(engineName);
+                JsonElement resultElement = engineObject.get("result");
+                JsonElement categoryElement = engineObject.get("category");
+                String resultValue = resultElement.toString();
+                String categoryValue = categoryElement.toString();
+                writer.write("Engine name@@ " + engineName + ", Category@@ " + categoryValue + ", Result@@ " + resultValue + "\n");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        writer.close();
     }
 }

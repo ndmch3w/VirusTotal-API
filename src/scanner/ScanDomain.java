@@ -1,10 +1,6 @@
 package scanner;
 
 
-import scanner.Scanner;
-
-import java.io.IOException;
-
 public class ScanDomain extends Scanner {
     private String domain;
 

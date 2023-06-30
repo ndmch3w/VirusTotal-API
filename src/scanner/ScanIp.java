@@ -1,6 +1,5 @@
 package scanner;
 
-import scanner.Scanner;
 
 public class ScanIp extends Scanner {
     private String ipAdress;
