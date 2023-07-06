@@ -132,10 +132,68 @@ public class JsonToTxt {
     }
 
     public static void getDomainInfo(String jsonFilePath, String txtFilePath) throws IOException {
-        // To do
+        Gson gson = new Gson();
+        FileReader fileReader = new FileReader(jsonFilePath);
+
+        JsonObject jsonObject = gson.fromJson(fileReader, JsonObject.class);
+
+        try {
+            JsonObject attributesObject = jsonObject
+                    .getAsJsonObject("data")
+                    .getAsJsonObject("attributes");
+            JsonObject categoriesObject = attributesObject.getAsJsonObject("categories");
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath))) {
+                writer.write("last_analysis_date: " +
+                        timestampConverter(attributesObject.get("last_analysis_date").toString()) + "\n");
+                writeJsonElementToFile(attributesObject,  "reputation", writer);
+                writer.write("Categories:" + "\n");
+                for (String category : categoriesObject.keySet()){
+                    writer.write("\t");
+                    writeJsonElementToFile(categoriesObject, category, writer);
+                }
+                writeJsonElementToFile(attributesObject,  "whois", writer);
+                writeJsonElementToFile(attributesObject,  "registrar", writer);
+                writeJsonElementToFile(attributesObject,  "jarm", writer);
+
+                System.out.println("TXT Info Report is created successfully");
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        } catch (NullPointerException n){
+            System.out.println("Error occurred while reading json file: " + n.getMessage());
+            System.out.println("Please check again if the object exists");
+        }
     }
 
     public static void getIpInfo(String jsonFilePath, String txtFilePath) throws IOException {
-        // To do
+        Gson gson = new Gson();
+        FileReader fileReader = new FileReader(jsonFilePath);
+
+        JsonObject jsonObject = gson.fromJson(fileReader, JsonObject.class);
+
+        try {
+            JsonObject attributesObject = jsonObject
+                    .getAsJsonObject("data")
+                    .getAsJsonObject("attributes");
+            JsonObject categoriesObject = attributesObject.getAsJsonObject("categories");
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath))) {
+                writer.write("last_analysis_date: " +
+                        timestampConverter(attributesObject.get("last_analysis_date").toString()) + "\n");
+                writeJsonElementToFile(attributesObject,  "reputation", writer);
+                writeJsonElementToFile(attributesObject,  "regional_internet_registry", writer);
+                writeJsonElementToFile(attributesObject,  "whois", writer);
+                writeJsonElementToFile(attributesObject,  "country", writer);
+                writeJsonElementToFile(attributesObject,  "tag", writer);
+
+                System.out.println("TXT Info Report is created successfully");
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        } catch (NullPointerException n){
+            System.out.println("Error occurred while reading json file: " + n.getMessage());
+            System.out.println("Please check again if the object exists");
+        }
     }
 }

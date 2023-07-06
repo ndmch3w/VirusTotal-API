@@ -1,4 +1,3 @@
-Reputation@@ -1
 Engine name@@ Bkav, Category@@ "undetected", Result@@ "unrated"
 Engine name@@ CMC Threat Intelligence, Category@@ "malicious", Result@@ "malware"
 Engine name@@ Snort IP sample list, Category@@ "harmless", Result@@ "clean"
