@@ -25,7 +25,7 @@ public class JsonToTxt {
         if (jsonObject.has(key)){
             writer.write(key + ": " + jsonObject.get(key) + "\n");
         }else{
-            writer.write(key + ": No data");
+            writer.write(key + ": No data\n");
         }
     }
     public static void convert(String jsonFilePath, String txtFilePath) throws IOException {
@@ -154,6 +154,7 @@ public class JsonToTxt {
                 }
                 writeJsonElementToFile(attributesObject,  "whois", writer);
                 writeJsonElementToFile(attributesObject,  "registrar", writer);
+                writeJsonElementToFile(attributesObject,"tags",writer);
                 writeJsonElementToFile(attributesObject,  "jarm", writer);
 
                 System.out.println("TXT Info Report is created successfully");
@@ -176,16 +177,17 @@ public class JsonToTxt {
             JsonObject attributesObject = jsonObject
                     .getAsJsonObject("data")
                     .getAsJsonObject("attributes");
-            JsonObject categoriesObject = attributesObject.getAsJsonObject("categories");
 
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath))) {
                 writer.write("last_analysis_date: " +
                         timestampConverter(attributesObject.get("last_analysis_date").toString()) + "\n");
                 writeJsonElementToFile(attributesObject,  "reputation", writer);
-                writeJsonElementToFile(attributesObject,  "regional_internet_registry", writer);
+                writeJsonElementToFile(attributesObject,  "regional_internet_registry", writer) ;
                 writeJsonElementToFile(attributesObject,  "whois", writer);
+                writer.write("whois_date: " +
+                        timestampConverter(attributesObject.get("whois_date").toString()) + "\n");
                 writeJsonElementToFile(attributesObject,  "country", writer);
-                writeJsonElementToFile(attributesObject,  "tag", writer);
+                writeJsonElementToFile(attributesObject,  "tags", writer);
 
                 System.out.println("TXT Info Report is created successfully");
             } catch (Exception e) {
