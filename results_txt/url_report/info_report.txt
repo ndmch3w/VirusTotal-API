@@ -1,5 +1,7 @@
-last_analysis_date: 2023-07-04 15:21:11
 reputation: 0
+last_analysis_date: 2023-07-04 15:21:11
+last_submission_date: 2023-07-04 15:21:11
+last_modification_date: 2023-07-04 15:21:25
 Categories:
 	Forcepoint ThreatSeeker: "web infrastructure"
 	Sophos: "spam urls"

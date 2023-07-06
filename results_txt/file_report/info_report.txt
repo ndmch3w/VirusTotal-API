@@ -1,8 +1,21 @@
-last_analysis_date: 2023-05-25 18:25:29
 reputation: 0
+last_analysis_date: 2023-05-25 18:25:29
+last_submission_date: 2023-06-23 03:19:03
+last_modification_date: 2023-06-23 03:19:03
 type_tags: ["executable","windows","win32","pe","peexe"]
 names: ["ideaIC-2023.1.1.exe","ideaIC-2023.1.1 (1).exe","IntelliJ IDE(a)    ideaIC-2023.1.1.exe"]
 size: 663963584
 sha256: "fc4038ca702110842a20bef100fae8be68c246ec405fac1dbb6154455003bce2"
 sha1: "656b4fc261d4e3c18040f21060d1d1b56b8bfe64"
 md5: "be1a4777f29558b6dff2ec15f4cc0e6c"
+trid:
+	file_type: "Win64 Executable (generic)"
+	probability: 37.3
+	file_type: "Win16 NE executable (generic)"
+	probability: 17.8
+	file_type: "Win32 Executable (generic)"
+	probability: 16.0
+	file_type: "Windows Icons Library (generic)"
+	probability: 7.3
+	file_type: "OS/2 Executable (generic)"
+	probability: 7.2

@@ -1,7 +1,12 @@
-last_analysis_date: 2023-07-06 10:30:54
-reputation: 44
-regional_internet_registry: No data
-whois: "NetRange: 192.168.0.0 - 192.168.255.255\nCIDR: 192.168.0.0/16\nNetName: PRIVATE-ADDRESS-CBLK-RFC1918-IANA-RESERVED\nNetHandle: NET-192-168-0-0-1\nParent: NET192 (NET-192-0-0-0-0)\nNetType: IANA Special Use\nOriginAS: \nOrganization: Internet Assigned Numbers Authority (IANA)\nRegDate: 1994-03-15\nUpdated: 2013-08-30\nComment: These addresses are in use by many millions of independently operated networks, which might be as small as a single computer connected to a home gateway, and are automatically configured in hundreds of millions of devices. They are only intended for use within a private context and traffic that needs to cross the Internet will need to use a different, unique address.\r\nComment: \r\nComment: These addresses can be used by anyone without any need to coordinate with IANA or an Internet registry. The traffic from these addresses does not come from ICANN or IANA. We are not the source of activity you may see on logs or in e-mail records. Please refer to http://www.iana.org/abuse/answers\r\nComment: \r\nComment: These addresses were assigned by the IETF, the organization that develops Internet protocols, in the Best Current Practice document, RFC 1918 which can be found at:\r\nComment: http://datatracker.ietf.org/doc/rfc1918\nRef: https://rdap.arin.net/registry/ip/192.168.0.0\nOrgName: Internet Assigned Numbers Authority\nOrgId: IANA\nAddress: 12025 Waterfront Drive\r\nAddress: Suite 300\nCity: Los Angeles\nStateProv: CA\nPostalCode: 90292\nCountry: US\nRegDate: \nUpdated: 2012-08-31\nRef: https://rdap.arin.net/registry/entity/IANA\nOrgAbuseHandle: IANA-IP-ARIN\nOrgAbuseName: ICANN\nOrgAbusePhone: +1-310-301-5820 \nOrgAbuseEmail: abuse@iana.org\nOrgAbuseRef: https://rdap.arin.net/registry/entity/IANA-IP-ARIN\nOrgTechHandle: IANA-IP-ARIN\nOrgTechName: ICANN\nOrgTechPhone: +1-310-301-5820 \nOrgTechEmail: abuse@iana.org\nOrgTechRef: https://rdap.arin.net/registry/entity/IANA-IP-ARIN\n"
-whois_date: 2022-12-07 21:10:39
-country: No data
-tags: ["suspicious-udp","private"]
+reputation: 0
+last_analysis_date: 2023-07-03 05:43:43
+last_modification_date: 2023-07-04 15:04:39
+whois: See more details if necessary in json_report/UrlReport.json
+whois_date: 2023-06-19 22:24:48
+tags: ["tor"]
+network: "144.24.0.0/16"
+asn: 31898
+as_owner: "ORACLE-BMC-31898"
+regional_internet_registry: "RIPE NCC"
+country: "FR"
+continent: "EU"

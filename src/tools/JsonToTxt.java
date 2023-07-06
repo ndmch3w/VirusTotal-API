@@ -1,6 +1,7 @@
 package tools;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
@@ -21,14 +22,15 @@ public class JsonToTxt {
 
         return utcString;
     }
-    private static void writeJsonElementToFile(JsonObject jsonObject, String key, BufferedWriter writer) throws IOException {
+    private static void writeJsonElementToFile(JsonObject jsonObject, String key, BufferedWriter writer)
+            throws IOException {
         if (jsonObject.has(key)){
             writer.write(key + ": " + jsonObject.get(key) + "\n");
         }else{
             writer.write(key + ": No data\n");
         }
     }
-    public static void convert(String jsonFilePath, String txtFilePath) throws IOException {
+    public static void getOverall(String jsonFilePath, String txtFilePath) throws IOException {
         Gson gson = new Gson();
         FileReader fileReader = new FileReader(jsonFilePath);
 
@@ -55,8 +57,6 @@ public class JsonToTxt {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-            // catch này để catch trường hợp không tìm được object nên gson không đọc được file json
-            // sau này có thể tối ưu để không lặp code
         } catch (NullPointerException n) {
             System.out.println("Error occurred while reading json file: " + n.getMessage());
             System.out.println("Please check again if the object exists");
@@ -74,16 +74,42 @@ public class JsonToTxt {
                     .getAsJsonObject("data")
                     .getAsJsonObject("attributes");
 
+            JsonArray tridArray = attributesObject.getAsJsonArray("trid");
+
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath))) {
-                writer.write("last_analysis_date: " +
-                        timestampConverter(attributesObject.get("last_analysis_date").toString()) + "\n");
                 writeJsonElementToFile(attributesObject,  "reputation", writer);
+
+                if (attributesObject.has("last_analysis_date")){
+                    writer.write("last_analysis_date: " +
+                            timestampConverter(attributesObject.get("last_analysis_date").toString()) + "\n");
+                }
+                if (attributesObject.has("last_submission_date")) {
+                    writer.write("last_submission_date: " +
+                            timestampConverter(attributesObject.get("last_submission_date").toString()) + "\n");
+                }
+                if (attributesObject.has("last_modification_date")) {
+                    writer.write("last_modification_date: " +
+                            timestampConverter(attributesObject.get("last_modification_date").toString()) + "\n");
+                }
+
                 writeJsonElementToFile(attributesObject,  "type_tags", writer);
                 writeJsonElementToFile(attributesObject,  "names", writer);
                 writeJsonElementToFile(attributesObject,  "size", writer);
                 writeJsonElementToFile(attributesObject,  "sha256", writer);
                 writeJsonElementToFile(attributesObject,  "sha1", writer);
                 writeJsonElementToFile(attributesObject,  "md5", writer);
+
+                if (attributesObject.has("trid")){
+                    writer.write("trid:\n");
+                    for (JsonElement element : tridArray){
+                        JsonObject object = element.getAsJsonObject();
+                        writer.write("\t");
+                        writeJsonElementToFile(object, "file_type", writer);
+                        writer.write("\t");
+                        writeJsonElementToFile(object, "probability", writer);
+                    }
+                }
+
                 System.out.println("TXT Info Report is created successfully");
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -105,22 +131,37 @@ public class JsonToTxt {
                     .getAsJsonObject("data")
                     .getAsJsonObject("attributes");
 
-            JsonObject categoriesObject = attributesObject.getAsJsonObject("categories");
-
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath))) {
-                writer.write("last_analysis_date: " +
-                        timestampConverter(attributesObject.get("last_analysis_date").toString()) + "\n");
                 writeJsonElementToFile(attributesObject,  "reputation", writer);
-                writer.write("Categories:" + "\n");
-                for (String category : categoriesObject.keySet()){
-                    writer.write("\t");
-                    writeJsonElementToFile(categoriesObject, category, writer);
+
+                if (attributesObject.has("last_analysis_date")){
+                    writer.write("last_analysis_date: " +
+                            timestampConverter(attributesObject.get("last_analysis_date").toString()) + "\n");
                 }
+                if (attributesObject.has("last_submission_date")) {
+                    writer.write("last_submission_date: " +
+                            timestampConverter(attributesObject.get("last_submission_date").toString()) + "\n");
+                }
+                if (attributesObject.has("last_modification_date")) {
+                    writer.write("last_modification_date: " +
+                            timestampConverter(attributesObject.get("last_modification_date").toString()) + "\n");
+                }
+
+                if (attributesObject.has("categories")){
+                    JsonObject categoriesObject = attributesObject.getAsJsonObject("categories");
+                    writer.write("Categories:" + "\n");
+                    for (String category : categoriesObject.keySet()){
+                        writer.write("\t");
+                        writeJsonElementToFile(categoriesObject, category, writer);
+                    }
+                }
+
                 writeJsonElementToFile(attributesObject,  "last_http_response_content_sha256", writer);
                 writeJsonElementToFile(attributesObject,  "last_http_response_code", writer);
                 writeJsonElementToFile(attributesObject,  "last_final_url", writer);
                 writeJsonElementToFile(attributesObject,  "last_http_response_content_length", writer);
                 writeJsonElementToFile(attributesObject,  "redirection_chain", writer);
+
                 System.out.println("TXT Info Report is created successfully");
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -141,21 +182,41 @@ public class JsonToTxt {
             JsonObject attributesObject = jsonObject
                     .getAsJsonObject("data")
                     .getAsJsonObject("attributes");
-            JsonObject categoriesObject = attributesObject.getAsJsonObject("categories");
 
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath))) {
-                writer.write("last_analysis_date: " +
-                        timestampConverter(attributesObject.get("last_analysis_date").toString()) + "\n");
                 writeJsonElementToFile(attributesObject,  "reputation", writer);
-                writer.write("Categories:" + "\n");
-                for (String category : categoriesObject.keySet()){
-                    writer.write("\t");
-                    writeJsonElementToFile(categoriesObject, category, writer);
+
+                if (attributesObject.has("last_analysis_date")){
+                    writer.write("last_analysis_date: " +
+                            timestampConverter(attributesObject.get("last_analysis_date").toString()) + "\n");
                 }
-                writeJsonElementToFile(attributesObject,  "whois", writer);
-                writeJsonElementToFile(attributesObject,  "registrar", writer);
+                if (attributesObject.has("last_submission_date")) {
+                    writer.write("last_submission_date: " +
+                            timestampConverter(attributesObject.get("last_submission_date").toString()) + "\n");
+                }
+                if (attributesObject.has("last_modification_date")) {
+                    writer.write("last_modification_date: " +
+                            timestampConverter(attributesObject.get("last_modification_date").toString()) + "\n");
+                }
+
+                if (attributesObject.has("categories")){
+                    JsonObject categoriesObject = attributesObject.getAsJsonObject("categories");
+                    writer.write("Categories:" + "\n");
+                    for (String category : categoriesObject.keySet()){
+                        writer.write("\t");
+                        writeJsonElementToFile(categoriesObject, category, writer);
+                    }
+                }
+
+                writer.write("Popularity rank: See more details if necessary in json_report/DomainReport.json\n");
+                writer.write("last_dns_records: See more details if necessary in json_report/DomainReport.json\n");
+                writer.write("whois: See more details if necessary in json_report/DomainReport.json\n");
+                if (attributesObject.has("whois")){
+                    writer.write("whois_date: " +
+                            timestampConverter(attributesObject.get("whois_date").toString()) + "\n");
+                }
+
                 writeJsonElementToFile(attributesObject,"tags",writer);
-                writeJsonElementToFile(attributesObject,  "jarm", writer);
 
                 System.out.println("TXT Info Report is created successfully");
             } catch (Exception e) {
@@ -179,15 +240,34 @@ public class JsonToTxt {
                     .getAsJsonObject("attributes");
 
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath))) {
-                writer.write("last_analysis_date: " +
-                        timestampConverter(attributesObject.get("last_analysis_date").toString()) + "\n");
                 writeJsonElementToFile(attributesObject,  "reputation", writer);
-                writeJsonElementToFile(attributesObject,  "regional_internet_registry", writer) ;
-                writeJsonElementToFile(attributesObject,  "whois", writer);
-                writer.write("whois_date: " +
-                        timestampConverter(attributesObject.get("whois_date").toString()) + "\n");
+
+                if (attributesObject.has("last_analysis_date")){
+                    writer.write("last_analysis_date: " +
+                            timestampConverter(attributesObject.get("last_analysis_date").toString()) + "\n");
+                }
+                if (attributesObject.has("last_submission_date")) {
+                    writer.write("last_submission_date: " +
+                            timestampConverter(attributesObject.get("last_submission_date").toString()) + "\n");
+                }
+                if (attributesObject.has("last_modification_date")) {
+                    writer.write("last_modification_date: " +
+                            timestampConverter(attributesObject.get("last_modification_date").toString()) + "\n");
+                }
+
+                writer.write("whois: See more details if necessary in json_report/IpReport.json\n");
+                if (attributesObject.has("whois")){
+                    writer.write("whois_date: " +
+                            timestampConverter(attributesObject.get("whois_date").toString()) + "\n");
+                }
+
+                writeJsonElementToFile(attributesObject,"tags",writer);
+                writeJsonElementToFile(attributesObject, "network", writer);
+                writeJsonElementToFile(attributesObject, "asn", writer);
+                writeJsonElementToFile(attributesObject, "as_owner", writer);
+                writeJsonElementToFile(attributesObject, "regional_internet_registry", writer);
                 writeJsonElementToFile(attributesObject,  "country", writer);
-                writeJsonElementToFile(attributesObject,  "tags", writer);
+                writeJsonElementToFile(attributesObject,  "continent", writer);
 
                 System.out.println("TXT Info Report is created successfully");
             } catch (Exception e) {

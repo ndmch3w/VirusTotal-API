@@ -56,7 +56,7 @@ public class Main {
                             wr1.write(responseScanFile);
                             wr1.close();
 
-                            JsonToTxt.convert(newFilePath1, "results_txt/file_report/overall_report.txt");
+                            JsonToTxt.getOverall(newFilePath1, "results_txt/file_report/overall_report.txt");
 
                             JsonToTxt.getFileInfo(newFilePath1, "results_txt/file_report/info_report.txt");
 
@@ -82,6 +82,7 @@ public class Main {
                         System.out.println("Type in the URL you want to scan below:");
                         // https://www.powerfinanceworld.com (raise exception since website isn't active)
                         // https://credltagricole-contact.46-30-203-97.plesk.page/13209
+                        // https://diepostl.com/
                         String url = sc.next();
 
                         ScanUrl urlScanner = new ScanUrl(apiKey, url);
@@ -92,7 +93,7 @@ public class Main {
                             wr2.write(responseScanUrl);
                             wr2.close();
 
-                            JsonToTxt.convert(newFilePath2, "results_txt/url_report/overall_report.txt");
+                            JsonToTxt.getOverall(newFilePath2, "results_txt/url_report/overall_report.txt");
 
                             JsonToTxt.getUrlInfo(newFilePath2, "results_txt/url_report/info_report.txt");
 
@@ -115,6 +116,7 @@ public class Main {
                     case 3:
                         System.out.println("Type in the domain name you want to scan below:");
                         // clicnews.com
+                        // tryteens.com
                         String domain = sc.next();
 
                         ScanDomain domainScanner = new ScanDomain(apiKey, domain);
@@ -124,7 +126,7 @@ public class Main {
                             wr3.write(responseScanDomain);
                             wr3.close();
 
-                            JsonToTxt.convert(newFilePath3, "results_txt/domain_report/overall_report.txt");
+                            JsonToTxt.getOverall(newFilePath3, "results_txt/domain_report/overall_report.txt");
 
                             JsonToTxt.getDomainInfo(newFilePath3, "results_txt/domain_report/info_report.txt");
 
@@ -147,6 +149,7 @@ public class Main {
                     case 4:
                         System.out.println("Type in the IP address you want to scan below:");
                         // 139.198.38.106
+                        // 144.24.197.112
                         String ipAddress = sc.next();
 
                         ScanIp ipScanner = new ScanIp(apiKey, ipAddress);
@@ -156,7 +159,7 @@ public class Main {
                             wr4.write(responseScanIp);
                             wr4.close();
 
-                            JsonToTxt.convert(newFilePath4, "results_txt/ip_report/overall_report.txt");
+                            JsonToTxt.getOverall(newFilePath4, "results_txt/ip_report/overall_report.txt");
 
                             JsonToTxt.getIpInfo(newFilePath4, "results_txt/ip_report/info_report.txt");
 

@@ -53,29 +53,8 @@ public class TxtToPDF {
         builder.endTable();
 
         doc.save(pdfFilePath);
-    }
 
-    public static void getInfoReport(String txtFilePath, String pdfFilePath) throws Exception {
-        Document doc = new Document();
-        DocumentBuilder builder = new DocumentBuilder(doc);
-
-        String[] lines = getTextLines(txtFilePath);
-
-        for (int i = 0; i<3; i++){
-            builder.writeln();
-        }
-
-        for (int i = 0; i<3; i++){
-            builder.writeln();
-        }
-
-        // Add table data
-        for (int i = 0; i < lines.length; i++) {
-            String line = lines[i];
-            builder.writeln(line);
-        }
-
-        doc.save(pdfFilePath);
+        System.out.println("PDF Report file is created successfully.");
     }
 
     private static String[] getTextLines(String txtFilePath)  {
