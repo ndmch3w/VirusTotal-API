@@ -1,13 +1,13 @@
-reputation: -63
-last_analysis_date: 2023-06-18 07:54:04
-last_modification_date: 2023-06-18 08:55:04
+reputation: 0
+last_analysis_date: 2023-07-06 14:17:45
+last_modification_date: 2023-07-06 18:53:32
 Categories:
-	Forcepoint ThreatSeeker: "compromised websites"
-	Xcitium Verdict Cloud: "media sharing"
-	BitDefender: "news"
-	alphaMountain.ai: "News"
-Popularity rank: See more details if necessary in json_report/UrlReport.json
-last_dns_records: See more details if necessary in json_report/UrlReport.json
-whois: See more details if necessary in json_report/UrlReport.json
-whois_date: 2023-06-18 07:54:50
-tags: []
+	Dr.Web: "known infection source"
+	Forcepoint ThreatSeeker: "information technology"
+	Sophos: "information technology"
+	BitDefender: "computersandsoftware"
+Popularity rank: See more details if necessary in json_report/DomainReport.json
+last_dns_records: See more details if necessary in json_report/DomainReport.json
+whois: See more details if necessary in json_report/DomainReport.json
+whois_date: 2021-12-11 16:17:48
+tags: ["dynamic-dns"]

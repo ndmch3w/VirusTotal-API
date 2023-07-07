@@ -1,21 +1,13 @@
 reputation: 0
-last_analysis_date: 2023-05-25 18:25:29
-last_submission_date: 2023-06-23 03:19:03
-last_modification_date: 2023-06-23 03:19:03
-type_tags: ["executable","windows","win32","pe","peexe"]
-names: ["ideaIC-2023.1.1.exe","ideaIC-2023.1.1 (1).exe","IntelliJ IDE(a)    ideaIC-2023.1.1.exe"]
-size: 663963584
-sha256: "fc4038ca702110842a20bef100fae8be68c246ec405fac1dbb6154455003bce2"
-sha1: "656b4fc261d4e3c18040f21060d1d1b56b8bfe64"
-md5: "be1a4777f29558b6dff2ec15f4cc0e6c"
+last_analysis_date: 2023-07-07 16:08:30
+last_submission_date: 2023-07-07 16:08:30
+last_modification_date: 2023-07-07 16:18:48
+type_tags: ["source","sql"]
+names: ["lesson4.sql"]
+size: 2276
+sha256: "fae24b8973ef2ec05f1b5543f3b02315f2ab85d5ab47da6b248e0597b2f18bca"
+sha1: "c0ba60a9caec18b507e8b1bae08c4071417a07d0"
+md5: "35d381f1ea7e7f0dc577ed55cd1a44c5"
 trid:
-	file_type: "Win64 Executable (generic)"
-	probability: 37.3
-	file_type: "Win16 NE executable (generic)"
-	probability: 17.8
-	file_type: "Win32 Executable (generic)"
-	probability: 16.0
-	file_type: "Windows Icons Library (generic)"
-	probability: 7.3
-	file_type: "OS/2 Executable (generic)"
-	probability: 7.2
+	file_type: "file seems to be plain text/ASCII"
+	probability: 0.0

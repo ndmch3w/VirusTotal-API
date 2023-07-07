@@ -1,12 +1,12 @@
-reputation: 0
-last_analysis_date: 2023-07-03 05:43:43
-last_modification_date: 2023-07-04 15:04:39
-whois: See more details if necessary in json_report/UrlReport.json
-whois_date: 2023-06-19 22:24:48
-tags: ["tor"]
-network: "144.24.0.0/16"
-asn: 31898
-as_owner: "ORACLE-BMC-31898"
-regional_internet_registry: "RIPE NCC"
-country: "FR"
-continent: "EU"
+reputation: 44
+last_analysis_date: 2023-07-07 15:57:10
+last_modification_date: 2023-07-07 16:02:12
+whois: See more details if necessary in json_report/IpReport.json
+whois_date: 2022-12-07 21:10:39
+tags: ["suspicious-udp","private"]
+network: No data
+asn: No data
+as_owner: No data
+regional_internet_registry: No data
+country: No data
+continent: No data
