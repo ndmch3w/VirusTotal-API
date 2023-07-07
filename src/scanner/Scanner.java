@@ -16,8 +16,8 @@ public abstract class Scanner {
     }
 
     public String getResponse() throws IOException {
-        URL apiUrl = new URL(endpointUrl);
-        HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();
+            URL apiUrl = new URL(endpointUrl);
+            HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();
         connection.setRequestMethod("GET");
         connection.setRequestProperty("accept", "application/json");
         connection.setRequestProperty("x-apikey", apiKey);
