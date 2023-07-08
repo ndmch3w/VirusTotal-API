@@ -18,7 +18,7 @@ After inputting a proper API key, the options menu appears, you need to input yo
 ![image](https://github.com/ndmch3w/Project1Test1/assets/130122471/69ac37c6-6d34-46ab-9bfd-37487d29b097)
 
 Next, type in the filepath (if you're scanning file), URL (if you're scanning URL), domain name (if you're scanning domain), IP address ((if you're scanning IP).
-For instances:
+For instances (the example objects below can be malicious):
  + URL: https://www.powerfinanceworld.com, https://credltagricole-contact.46-30-203-97.plesk.page/13209, https://diepostl.com/
  + Domain: clicnews.com, tryteens.com
  + IP: 139.198.38.106, 144.24.197.112
