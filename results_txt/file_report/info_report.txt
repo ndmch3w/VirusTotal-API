@@ -1,13 +1,21 @@
 reputation: 0
-last_analysis_date: 2023-07-07 16:08:30
-last_submission_date: 2023-07-07 16:08:30
-last_modification_date: 2023-07-07 16:18:48
-type_tags: ["source","sql"]
-names: ["lesson4.sql"]
-size: 2276
-sha256: "fae24b8973ef2ec05f1b5543f3b02315f2ab85d5ab47da6b248e0597b2f18bca"
-sha1: "c0ba60a9caec18b507e8b1bae08c4071417a07d0"
-md5: "35d381f1ea7e7f0dc577ed55cd1a44c5"
+last_analysis_date: 2023-06-19 14:40:23
+last_submission_date: 2023-06-19 14:40:23
+last_modification_date: 2023-06-19 16:42:55
+type_tags: ["executable","mobile","android","apk"]
+names: ["wildfire-test-apk-file.apk"]
+size: 1434609
+sha256: "bd9e8da2c090ab356b421b9c00406f1b6f98748860a4fb4f01874a900b6f5480"
+sha1: "8cbf887c40537dc0c5e45defcd91f28dcd35e833"
+md5: "6f1d75a84d33653eaac649a673648d74"
 trid:
-	file_type: "file seems to be plain text/ASCII"
-	probability: 0.0
+	file_type: "Android Package"
+	probability: 52.8
+	file_type: "Java Archive"
+	probability: 21.9
+	file_type: "Sweet Home 3D design (generic)"
+	probability: 17.0
+	file_type: "ZIP compressed archive"
+	probability: 6.5
+	file_type: "PrintFox/Pagefox bitmap (640x800)"
+	probability: 1.6

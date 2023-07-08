@@ -9,27 +9,23 @@ import scanner.ScanFile;
 import scanner.ScanIp;
 import scanner.ScanUrl;
 
-import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
 public class Main {
+
     private static boolean testApiConnection(String apiKey) {
         try {
-            URL url = new URL("https://www.virustotal.com/api/v3/ip_addresses/192.168.1.1");
+            URL url = new URL("https://www.virustotal.com/api/v3/users/current" );
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("x-apikey", apiKey);
-
             int responseCode = connection.getResponseCode();
             return responseCode == HttpURLConnection.HTTP_OK;
-
-        } catch (IOException e) {
-        }
+        } catch (IOException e) {}
         return false;
     }
     private static void showMenu(){
