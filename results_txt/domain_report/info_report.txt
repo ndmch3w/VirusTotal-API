@@ -1,67 +1,63 @@
-reputation: -1
-last_analysis_date: 2023-06-16 02:58:42
-last_modification_date: 2023-07-07 18:15:35
+reputation: -63
+last_analysis_date: 2023-06-18 07:54:04
+last_modification_date: 2023-06-18 08:55:04
 Categories:
-	Dr.Web: "adult content"
-	Forcepoint ThreatSeeker: "sex"
-	Sophos: "sexually explicit"
+	Forcepoint ThreatSeeker: "compromised websites"
 	Xcitium Verdict Cloud: "media sharing"
-	BitDefender: "porn"
+	BitDefender: "news"
+	alphaMountain.ai: "News"
 Popularity rank: See more details if necessary in json_report/DomainReport.json
 last_dns_records: See more details if necessary in json_report/DomainReport.json
 whois:
-	Admin City: GDPR Masked
-	Admin Country: GDPR Masked
-	Admin Email: 1e9f9886a6da0a83s@gdpr-masked.com
-	Admin Organization: GDPR Masked
-	Admin Postal Code: GDPR Masked
-	Admin State/Province: GDPR Masked
-	Creation Date: 2003-11-17T13:02:31Z
-	DNSSEC: Unsigned
+	Admin City: Seoul
+	Admin Country: KR
+	Admin Email: 7df2ed162494053as@gmail.com
+	Admin Organization: PARK TAE WON
+	Admin Postal Code: 121781
+	Creation Date: 2011-03-05T12:00:00Z
+	Creation Date: 2011-03-05T19:29:18Z
 	DNSSEC: unsigned
-	Domain Name: TRYTEENS.COM
+	Domain Name: CLICNEWS.COM
+	Domain Name: clicnews.com
 	Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
-	Name Server: NS1.AS41887.NL
-	Name Server: NS2.AS41887.EU
-	Name Server: NS3.AS41887.IO
-	Name Server: NS4.AS41887.IT
-	Name Server: ns1.as41887.nl
-	Name Server: ns2.as41887.eu
-	Name Server: ns3.as41887.io
-	Name Server: ns4.as41887.it
-	Registrant City: 7bc26f5a5e70d417
-	Registrant Country: NL
-	Registrant Email: 1e9f9886a6da0a83s@gdpr-masked.com
+	Domain Status: ok https://icann.org/epp#ok
+	Name Server: NS1.AFTERNIC.COM
+	Name Server: NS2.AFTERNIC.COM
+	Name Server: ns1.afternic.com
+	Name Server: ns2.afternic.com
+	Registrant City: ff94c6963ec3c9de
+	Registrant Country: KR
+	Registrant Email: 7df2ed162494053as@gmail.com
 	Registrant Fax Ext: 3432650ec337c945
-	Registrant Fax: 7bc26f5a5e70d417
-	Registrant Name: 7bc26f5a5e70d417
-	Registrant Organization: 7bc26f5a5e70d417
+	Registrant Fax: 3432650ec337c945
+	Registrant Name: 46ecd8769e87db75
+	Registrant Organization: 46ecd8769e87db75
 	Registrant Phone Ext: 3432650ec337c945
-	Registrant Phone: 7bc26f5a5e70d417
-	Registrant Postal Code: 7bc26f5a5e70d417
+	Registrant Phone: dda57595d4e82be2
+	Registrant Postal Code: 60815f7f6df19083
 	Registrant State/Province: 3432650ec337c945
-	Registrant Street: 7bc26f5a5e70d417
-	Registrar Abuse Contact Email: abuse-contact@publicdomainregistry.com
-	Registrar Abuse Contact Phone: +1.2013775952
-	Registrar IANA ID: 303
-	Registrar Registration Expiration Date: 2023-11-17T13:02:31Z
-	Registrar URL: http://www.publicdomainregistry.com
-	Registrar URL: www.publicdomainregistry.com
-	Registrar WHOIS Server: whois.PublicDomainRegistry.com
-	Registrar WHOIS Server: whois.publicdomainregistry.com
-	Registrar: PDR Ltd. d/b/a PublicDomainRegistry.com
-	Registry Admin ID: GDPR Masked
-	Registry Domain ID: 106790230_DOMAIN_COM-VRSN
-	Registry Expiry Date: 2023-11-17T13:02:31Z
-	Registry Registrant ID: GDPR Masked
-	Registry Tech ID: GDPR Masked
-	Tech City: GDPR Masked
-	Tech Country: GDPR Masked
-	Tech Email: 1e9f9886a6da0a83s@gdpr-masked.com
-	Tech Organization: GDPR Masked
-	Tech Postal Code: GDPR Masked
-	Tech State/Province: GDPR Masked
-	Updated Date: 2022-10-29T06:45:17Z
-	Updated Date: 2022-10-29T06:45:18Z
-whois_date: 2023-06-08 14:52:32
+	Registrant Street: e0bde64e78ecc686
+	Registrar Abuse Contact Email: abuse@hosting.kr
+	Registrar Abuse Contact Email: help@hosting.kr
+	Registrar Abuse Contact Phone: +82.16447378
+	Registrar Abuse Contact Phone: +82.216447378
+	Registrar IANA ID: 1489
+	Registrar Registration Expiration Date: 2025-03-05T12:00:00Z
+	Registrar URL: http://HOSTING.KR
+	Registrar URL: http://www.hosting.kr
+	Registrar WHOIS Server: whois.hosting.kr
+	Registrar: Megazone Corp., dba HOSTING.KR
+	Registry Admin ID: Not Available From Registry
+	Registry Domain ID: 1643828428_DOMAIN_COM-VRSN
+	Registry Expiry Date: 2025-03-05T19:29:18Z
+	Registry Registrant ID: Not Available From Registry
+	Registry Tech ID: Not Available From Registry
+	Tech City: Seoul
+	Tech Country: KR
+	Tech Email: 7df2ed162494053as@gmail.com
+	Tech Organization: PARK TAE WON
+	Tech Postal Code: 121781
+	Updated Date: 2023-05-25T03:14:09Z
+	Updated Date: 2023-05-25T12:00:00Z
+whois_date: 2023-06-18 07:54:50
 tags: []

@@ -1,69 +1,59 @@
-reputation: -1
-last_analysis_date: 2023-06-22 18:18:35
-last_modification_date: 2023-07-08 06:36:43
+reputation: 0
+last_analysis_date: 2023-07-03 05:43:43
+last_modification_date: 2023-07-04 15:04:39
 whois:
-	inetnum: 139.198.0.0 - 139.198.255.255
-	netname: YUNIFY-NET
-	descr: Yunify Technologies Inc.
-	country: CN
-	admin-c: ZM1700-AP
-	tech-c: ZM1700-AP
-	abuse-c: AC1601-AP
-	status: ALLOCATED PORTABLE
-	mnt-by: MAINT-CNNIC-AP
-	mnt-routes: MAINT-YTL-HK
-	mnt-irt: IRT-CNNIC-CN
-	last-modified: 2021-06-16T01:33:05Z
-	source: APNIC
-	irt: IRT-CNNIC-CN
-	address: Beijing, China
-	e-mail: ipas@cnnic.cn
-	abuse-mailbox: ipas@cnnic.cn
-	admin-c: IP50-AP
-	tech-c: IP50-AP
-	auth: # Filtered
-	remarks: Please note that CNNIC is not an ISP and is not
-	remarks: empowered to investigate complaints of network abuse.
-	remarks: Please contact the tech-c or admin-c of the network.
-	mnt-by: MAINT-CNNIC-AP
-	last-modified: 2021-06-16T01:39:57Z
-	source: APNIC
-	role: ABUSE CNNICCN
-	address: Beijing, China
-	country: ZZ
-	phone: +000000000
-	e-mail: ipas@cnnic.cn
-	admin-c: IP50-AP
-	tech-c: IP50-AP
-	nic-hdl: AC1601-AP
-	remarks: Generated from irt object IRT-CNNIC-CN
-	abuse-mailbox: ipas@cnnic.cn
-	mnt-by: APNIC-ABUSE
-	last-modified: 2020-05-14T11:19:01Z
-	source: APNIC
-	person: Zhiqiang Ma
-	address: Room 1503, Tower 2, North Star New Era, Beiyuan Road
-	address: Chaoyang District, Beijing, China.
-	country: CN
-	phone: +86-13910911019
-	e-mail: mazhiqiang@yunify.com
-	nic-hdl: ZM1700-AP
-	mnt-by: MAINT-CNNIC-AP
-	last-modified: 2016-09-28T02:00:01Z
-	source: APNIC
-	route: 139.198.0.0/16
-	notify: mazhiqiang@yunify.com
-	descr: Yunify Technologies Inc.
-	country: CN
-	origin: AS59078
-	mnt-by: MAINT-YTL-HK
-	last-modified: 2018-01-18T00:40:02Z
-	source: APNIC
-whois_date: 2023-06-15 10:11:35
-tags: []
-network: "139.198.32.0/19"
-asn: 59078
-as_owner: "Yunify Technologies Inc."
-regional_internet_registry: "APNIC"
-country: "CN"
-continent: "AS"
+	inetnum: 144.24.0.0 - 144.24.255.255
+	netname: ORACLE-UK
+	descr: Oracle Corp UK Ltd
+	descr: Oracle Parkway Thames Valley Park 550
+	descr: Reading, RG6 1RA
+	country: GB
+	org: ORG-OSA29-RIPE
+	geoloc: 51.522373 -0.629251
+	admin-c: DM12756-RIPE
+	tech-c: DM12756-RIPE
+	status: LEGACY
+	mnt-by: ORCL-MNT
+	mnt-lower: ORCL-MNT
+	mnt-routes: ORCL-MNT
+	created: 2003-12-09T13:47:05Z
+	last-modified: 2019-12-04T13:13:46Z
+	source: RIPE
+	organisation: ORG-OSA29-RIPE
+	org-name: Oracle Svenska AB
+	country: SE
+	org-type: LIR
+	address: R�sundav�gen 4
+	 Box 1429
+	address: 169 57
+	address: Solna
+	address: SWEDEN
+	phone: +4684773376
+	fax-no: +4684773376
+	abuse-c: AR17199-RIPE
+	mnt-ref: RIPE-NCC-HM-MNT
+	mnt-ref: ORCL-MNT
+	mnt-by: RIPE-NCC-HM-MNT
+	mnt-by: ORCL-MNT
+	created: 2010-12-02T11:14:19Z
+	last-modified: 2020-12-16T12:47:27Z
+	source: RIPE # Filtered
+	person: Domain Administrator
+	address: 500 Oracle Parkway, M/S 501ip3
+	address: Redwood Shores, CA,
+	address: 94065
+	address: US
+	phone: +1.6505062220
+	nic-hdl: DM12756-RIPE
+	mnt-by: ORCL-MNT
+	created: 2014-06-09T11:09:41Z
+	last-modified: 2014-06-09T11:09:41Z
+	source: RIPE
+whois_date: 2023-06-19 22:24:48
+tags: ["tor"]
+network: "144.24.0.0/16"
+asn: 31898
+as_owner: "ORACLE-BMC-31898"
+regional_internet_registry: "RIPE NCC"
+country: "FR"
+continent: "EU"
