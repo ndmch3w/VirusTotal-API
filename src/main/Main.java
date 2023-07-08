@@ -10,9 +10,24 @@ import scanner.ScanIp;
 import scanner.ScanUrl;
 
 import java.io.FileWriter;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Scanner;
 
 public class Main {
+
+    private static boolean testApiConnection(String apiKey) {
+        try {
+            URL url = new URL("https://www.virustotal.com/api/v3/users/current" );
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("x-apikey", apiKey);
+            int responseCode = connection.getResponseCode();
+            return responseCode == HttpURLConnection.HTTP_OK;
+        } catch (IOException e) {}
+        return false;
+    }
     private static void showMenu(){
         System.out.println("--------------------------------");
         System.out.println("Choose your option:");
@@ -23,62 +38,62 @@ public class Main {
         System.out.println("0. Exit");
         System.out.println("--------------------------------");
     }
-
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Input your VirusTotal API key for more options:");
         String apiKey = sc.next();
-
+        while (!testApiConnection(apiKey)){
+            System.out.println("Wrong API key , please input your VirusTotal API key again:");
+            apiKey = sc.next();
+        }
         showMenu();
 
         System.out.println("Type in your selection (e.g. '1'):");
-        int choice = sc.nextInt();
-
-        while (choice != 0){
-            if (choice < 0 || choice > 4){
+        String choice = sc.next();
+        while (!choice.equals("0")){
+            if (choice.compareTo("0")<0 || choice.compareTo("4")>0 ){
                 System.out.println("Wrong choice input, please input an integer from 0 to 4:");
-                choice = sc.nextInt();
+                choice = sc.next();
             }else{
                 switch (choice) {
-                    case 1:
+                    case "1":
                         System.out.println("Type in the filepath you want to scan below:");
                         // C:/Users/DELL/Downloads/ideaIC-2023.1.1.exe
                         // E:/AfterJenkins/Project1Test1/Malware test files/wildfire-test-apk-file.apk
                         sc.nextLine();
-                        String filePath = sc.nextLine().trim();
+                        String filePath = sc.nextLine();
+                            ScanFile fileScanner = new ScanFile(apiKey, filePath);
+                            String responseScanFile = fileScanner.getResponse();
+                            String newFilePath1 = "json_report/FileReport.json";
 
-                        ScanFile fileScanner = new ScanFile(apiKey, filePath);
-                        String responseScanFile = fileScanner.getResponse();
-                        String newFilePath1 = "json_report/FileReport.json";
+                            try (FileWriter wr1 = new FileWriter(newFilePath1)) {
+                                wr1.write(responseScanFile);
+                                wr1.close();
 
-                        try (FileWriter wr1 = new FileWriter(newFilePath1)) {
-                            wr1.write(responseScanFile);
-                            wr1.close();
+                                JsonToTxt.getOverall(newFilePath1, "results_txt/file_report/overall_report.txt");
 
-                            JsonToTxt.getOverall(newFilePath1, "results_txt/file_report/overall_report.txt");
+                                JsonToTxt.getFileInfo(newFilePath1, "results_txt/file_report/info_report.txt");
 
-                            JsonToTxt.getFileInfo(newFilePath1, "results_txt/file_report/info_report.txt");
+                                JsonToCsv.convert(newFilePath1, "results_csv/FileReport.csv");
 
-                            JsonToCsv.convert(newFilePath1, "results_csv/FileReport.csv");
-
-                            GenGraph.generate("results_csv/FileReport.csv", "charts/FileChart.png");
+                                GenGraph.generate("results_csv/FileReport.csv", "charts/FileChart.png");
 
 
-                            TxtToPDF.convert("results_txt/file_report/overall_report.txt",
-                                    "results_txt/file_report/info_report.txt",
-                                    "results_pdf/FileReport.pdf",
-                                    "charts/FileChart.png");
+                                TxtToPDF.convert("results_txt/file_report/overall_report.txt",
+                                        "results_txt/file_report/info_report.txt",
+                                        "results_pdf/FileReport.pdf",
+                                        "charts/FileChart.png");
 
-                        } catch (Exception e) {
-                            System.out.println("Error occurred while creating/writing file: " + e.getMessage());
-                        }finally {
-                            showMenu();
-                            System.out.println("Type in your selection (e.g. '1'):");
-                            choice = sc.nextInt();
+                            } catch (Exception e) {
+                                System.out.println("Error occurred while creating/writing file: " + e.getMessage());
+                            } finally {
+                                showMenu();
+                                System.out.println("Type in your selection (e.g. '1'):");
+                                choice = sc.next();
                         }
                         break;
-                    case 2:
+                    case "2":
                         System.out.println("Type in the URL you want to scan below:");
                         // https://www.powerfinanceworld.com (raise exception since website isn't active)
                         // https://credltagricole-contact.46-30-203-97.plesk.page/13209
@@ -110,10 +125,10 @@ public class Main {
                         }finally {
                             showMenu();
                             System.out.println("Type in your selection (e.g. '1'):");
-                            choice = sc.nextInt();
+                            choice = sc.next();
                         }
                         break;
-                    case 3:
+                    case "3":
                         System.out.println("Type in the domain name you want to scan below:");
                         // clicnews.com
                         // tryteens.com
@@ -143,10 +158,10 @@ public class Main {
                         }finally {
                             showMenu();
                             System.out.println("Type in your selection (e.g. '1'):");
-                            choice = sc.nextInt();
+                            choice = sc.next();
                         }
                         break;
-                    case 4:
+                    case "4":
                         System.out.println("Type in the IP address you want to scan below:");
                         // 139.198.38.106
                         // 144.24.197.112
@@ -176,7 +191,7 @@ public class Main {
                         }finally {
                             showMenu();
                             System.out.println("Type in your selection (e.g. '1'):");
-                            choice = sc.nextInt();
+                            choice = sc.next();
                         }
                         break;
                     default:
