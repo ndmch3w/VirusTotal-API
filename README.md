@@ -10,9 +10,11 @@ Our project is used for scanning files (<650mb), URLs, domain names, IP addresse
 ## Usage
 
 To start the application, you have to run /src/main/main.java. The application will ask for an API key of Virustotal (read https://support.virustotal.com/hc/en-us/articles/115002088769-Please-give-me-an-API-key for information about getting an API key):
+
 ![image](https://github.com/ndmch3w/Project1Test1/assets/130122471/3472c632-dce6-4f03-8b18-4736e8fcc964)
 
 After inputting a proper API key, the options menu appears, you need to input your choice to scan your object:
+
 ![image](https://github.com/ndmch3w/Project1Test1/assets/130122471/69ac37c6-6d34-46ab-9bfd-37487d29b097)
 
 Next, type in the filepath (if you're scanning file), URL (if you're scanning URL), domain name (if you're scanning domain), IP address ((if you're scanning IP).
