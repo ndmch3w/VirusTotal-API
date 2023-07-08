@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.Scanner;
 
 public class Main {
-
+    // To check if API key is valid and can be used to connect to the server to get reports
     private static boolean testApiConnection(String apiKey) {
         try {
             URL url = new URL("https://www.virustotal.com/api/v3/users/current" );
@@ -28,6 +28,8 @@ public class Main {
         } catch (IOException e) {}
         return false;
     }
+
+    // Main menu of the application
     private static void showMenu(){
         System.out.println("--------------------------------");
         System.out.println("Choose your option:");
@@ -38,6 +40,8 @@ public class Main {
         System.out.println("0. Exit");
         System.out.println("--------------------------------");
     }
+
+
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
 
@@ -51,16 +55,18 @@ public class Main {
 
         System.out.println("Type in your selection (e.g. '1'):");
         String choice = sc.next();
+        // Limit user's choice to be an integer in range 0 -> 4
         while (!choice.equals("0")){
-            if (choice.compareTo("0")<0 || choice.compareTo("4")>0 ){
+            if (choice.length() != 1) {
+                System.out.println("Wrong choice input, please input an integer from 0 to 4:");
+                choice = sc.next();
+            }else if (choice.compareTo("0")<0 || choice.compareTo("4")>0 || !choice.matches("\\d+")){
                 System.out.println("Wrong choice input, please input an integer from 0 to 4:");
                 choice = sc.next();
             }else{
                 switch (choice) {
-                    case "1":
+                    case "1": // File Scan
                         System.out.println("Type in the filepath you want to scan below:");
-                        // C:/Users/DELL/Downloads/ideaIC-2023.1.1.exe
-                        // E:/AfterJenkins/Project1Test1/Malware test files/wildfire-test-apk-file.apk
                         sc.nextLine();
                         String filePath = sc.nextLine();
                             ScanFile fileScanner = new ScanFile(apiKey, filePath);
@@ -71,15 +77,18 @@ public class Main {
                                 wr1.write(responseScanFile);
                                 wr1.close();
 
+                                // Get overall report of the object (main results to build a comparative table in PDF report)
                                 JsonToTxt.getOverall(newFilePath1, "results_txt/file_report/overall_report.txt");
 
+                                // Get details information of the object
                                 JsonToTxt.getFileInfo(newFilePath1, "results_txt/file_report/info_report.txt");
 
+                                // Convert Json report to csv (later be used to visualize results by a graph)
                                 JsonToCsv.convert(newFilePath1, "results_csv/FileReport.csv");
 
                                 GenGraph.generate("results_csv/FileReport.csv", "charts/FileChart.png");
 
-
+                                // Generate a full report in a PDF file
                                 TxtToPDF.convert("results_txt/file_report/overall_report.txt",
                                         "results_txt/file_report/info_report.txt",
                                         "results_pdf/FileReport.pdf",
@@ -93,11 +102,8 @@ public class Main {
                                 choice = sc.next();
                         }
                         break;
-                    case "2":
+                    case "2": // URL scan
                         System.out.println("Type in the URL you want to scan below:");
-                        // https://www.powerfinanceworld.com (raise exception since website isn't active)
-                        // https://credltagricole-contact.46-30-203-97.plesk.page/13209
-                        // https://diepostl.com/
                         String url = sc.next();
 
                         ScanUrl urlScanner = new ScanUrl(apiKey, url);
@@ -108,14 +114,18 @@ public class Main {
                             wr2.write(responseScanUrl);
                             wr2.close();
 
+                            // Get overall report of the object (main results to build a comparative table in PDF report)
                             JsonToTxt.getOverall(newFilePath2, "results_txt/url_report/overall_report.txt");
 
+                            // Get details information of the object
                             JsonToTxt.getUrlInfo(newFilePath2, "results_txt/url_report/info_report.txt");
 
+                            // Convert Json report to csv (later be used to visualize results by a graph)
                             JsonToCsv.convert(newFilePath2, "results_csv/UrlReport.csv");
 
                             GenGraph.generate("results_csv/UrlReport.csv", "charts/UrlChart.png");
 
+                            // Generate a full report in a PDF file
                             TxtToPDF.convert("results_txt/url_report/overall_report.txt",
                                     "results_txt/url_report/info_report.txt",
                                     "results_pdf/UrlReport.pdf",
@@ -128,10 +138,8 @@ public class Main {
                             choice = sc.next();
                         }
                         break;
-                    case "3":
+                    case "3": // Domain scan (structure is the same as other cases)
                         System.out.println("Type in the domain name you want to scan below:");
-                        // clicnews.com
-                        // tryteens.com
                         String domain = sc.next();
 
                         ScanDomain domainScanner = new ScanDomain(apiKey, domain);
@@ -161,10 +169,8 @@ public class Main {
                             choice = sc.next();
                         }
                         break;
-                    case "4":
+                    case "4": // IP scan (structure is the same as other cases)
                         System.out.println("Type in the IP address you want to scan below:");
-                        // 139.198.38.106
-                        // 144.24.197.112
                         String ipAddress = sc.next();
 
                         ScanIp ipScanner = new ScanIp(apiKey, ipAddress);

@@ -9,22 +9,26 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 public class TxtToPDF {
-    public static void convert(String txtFilePath, String txtInfoFilePath, String pdfFilePath, String imageFilePath) throws Exception {
+    public static void convert(String txtOverallFilePath, String txtInfoFilePath, String pdfFilePath, String imageFilePath)
+            throws Exception {
         Document doc = new Document();
         DocumentBuilder builder = new DocumentBuilder(doc);
 
-        String[] lines = getTextLines(txtFilePath);
+        String[] lines = getTextLines(txtOverallFilePath);
         String[] info = getTextLines(txtInfoFilePath);
 
+        // Insert overall graph to PDF report
         builder.insertImage(imageFilePath);
 
+        // Insert specific object information
         for (int i = 0; i < info.length; i++) {
             String infoLine = info[i];
             builder.writeln(infoLine);
         }
         builder.writeln();
 
-        Table table = builder.startTable();
+        // Insert overall results in the form of table
+        builder.startTable();
         // Add table headers
         builder.insertCell();
         builder.write("Tool");
@@ -57,6 +61,7 @@ public class TxtToPDF {
         System.out.println("PDF Report file is created successfully.");
     }
 
+    // Get text lines from .txt files
     private static String[] getTextLines(String txtFilePath)  {
         Path path = Paths.get(txtFilePath);
         try (Stream<String> lines = Files.lines(path)) {

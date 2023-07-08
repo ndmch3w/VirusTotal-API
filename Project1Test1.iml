@@ -10,7 +10,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/ProjectJarFiles/jfreechart-1.5.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/../ProjectJarFiles/new aspose/aspose-words-23.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -19,7 +19,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/ProjectJarFiles/gson-2.10.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../ProjectJarFiles/commons-csv-1.10.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -28,7 +28,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/ProjectJarFiles/commons-csv-1.10.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../ProjectJarFiles/commons-logging-1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -37,7 +37,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/ProjectJarFiles/commons-logging-1.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../ProjectJarFiles/gson-2.10.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -46,15 +46,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/ProjectJarFiles/new aspose/aspose-words-23.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../ProjectJarFiles/jfreechart-1.5.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="jfreechart-1.5.0" level="project" />
-    <orderEntry type="library" name="commons-csv-1.6" level="project" />
-    <orderEntry type="library" name="aspose-words-23.1" level="project" />
-    <orderEntry type="library" name="gson-2.8.2" level="project" />
   </component>
 </module>

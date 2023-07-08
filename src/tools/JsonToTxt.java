@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class JsonToTxt {
+    // Convert timestamp to readable UTC date
     private static String timestampConverter(String stringTimestamp){
         long longTimeStamp = Long.parseLong(stringTimestamp);
         Date date = new Date(longTimeStamp * 1000L);
@@ -22,6 +23,7 @@ public class JsonToTxt {
 
         return utcString;
     }
+    // Format JsonElement to String lines in object detailed information file
     private static void writeJsonElementToFile(JsonObject jsonObject, String key, BufferedWriter writer)
             throws IOException {
         if (jsonObject.has(key)){
@@ -30,6 +32,8 @@ public class JsonToTxt {
             writer.write(key + ": No data\n");
         }
     }
+
+    // Get overall report from json report -> Gen a visualizing table in PDF report later
     public static void getOverall(String jsonFilePath, String txtFilePath) throws IOException {
         Gson gson = new Gson();
         FileReader fileReader = new FileReader(jsonFilePath);
@@ -37,13 +41,14 @@ public class JsonToTxt {
         JsonObject jsonObject = gson.fromJson(fileReader, JsonObject.class);
 
         try {
-            // Detail results of different antivirus tools
+            // Detailed results of different antivirus tools
             JsonObject resultsObject = jsonObject
                     .getAsJsonObject("data")
                     .getAsJsonObject("attributes")
                     .getAsJsonObject("last_analysis_results");
 
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath))) {
+                // Write engine name, result category and specific result to file
                 for (String engineName : resultsObject.keySet()) {
                     JsonObject engineObject = resultsObject.getAsJsonObject(engineName);
                     JsonElement resultElement = engineObject.get("result");
@@ -58,11 +63,13 @@ public class JsonToTxt {
                 System.out.println(e.getMessage());
             }
         } catch (NullPointerException n) {
+            // Raise exception when some object isn't active or json report doesn't contain necessary attributes
             System.out.println("Error occurred while reading json file: " + n.getMessage());
             System.out.println("Please check again if the object exists");
         }
     }
 
+    // Get specific information of file object
     public static void getFileInfo(String jsonFilePath, String txtFilePath) throws IOException {
         Gson gson = new Gson();
         FileReader fileReader = new FileReader(jsonFilePath);
@@ -120,6 +127,7 @@ public class JsonToTxt {
         }
     }
 
+    // Get specific information of URL object
     public static void getUrlInfo(String jsonFilePath, String txtFilePath) throws IOException {
         Gson gson = new Gson();
         FileReader fileReader = new FileReader(jsonFilePath);
@@ -172,6 +180,7 @@ public class JsonToTxt {
         }
     }
 
+    // Get specific information of domain object
     public static void getDomainInfo(String jsonFilePath, String txtFilePath) throws IOException {
         Gson gson = new Gson();
         FileReader fileReader = new FileReader(jsonFilePath);
@@ -210,8 +219,17 @@ public class JsonToTxt {
 
                 writer.write("Popularity rank: See more details if necessary in json_report/DomainReport.json\n");
                 writer.write("last_dns_records: See more details if necessary in json_report/DomainReport.json\n");
-                writer.write("whois: See more details if necessary in json_report/DomainReport.json\n");
+
                 if (attributesObject.has("whois")){
+                    writer.write("whois:\n");
+                    String fullWhois = attributesObject.get("whois").getAsString();
+                    String[] whoisLines = fullWhois.split("\\n");
+                    for (String line : whoisLines){
+                        writer.write("\t");
+                        writer.write(line + "\n");
+                    }
+                }
+                if (attributesObject.has("whois_date")){
                     writer.write("whois_date: " +
                             timestampConverter(attributesObject.get("whois_date").toString()) + "\n");
                 }
@@ -228,6 +246,7 @@ public class JsonToTxt {
         }
     }
 
+    // Get specific information of IP object
     public static void getIpInfo(String jsonFilePath, String txtFilePath) throws IOException {
         Gson gson = new Gson();
         FileReader fileReader = new FileReader(jsonFilePath);
@@ -255,8 +274,16 @@ public class JsonToTxt {
                             timestampConverter(attributesObject.get("last_modification_date").toString()) + "\n");
                 }
 
-                writer.write("whois: See more details if necessary in json_report/IpReport.json\n");
                 if (attributesObject.has("whois")){
+                    writer.write("whois:\n");
+                    String fullWhois = attributesObject.get("whois").getAsString();
+                    String[] whoisLines = fullWhois.split("\\n");
+                    for (String line : whoisLines){
+                        writer.write("\t");
+                        writer.write(line + "\n");
+                    }
+                }
+                if (attributesObject.has("whois_date")){
                     writer.write("whois_date: " +
                             timestampConverter(attributesObject.get("whois_date").toString()) + "\n");
                 }

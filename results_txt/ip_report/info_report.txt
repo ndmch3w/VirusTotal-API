@@ -1,12 +1,69 @@
-reputation: 0
-last_analysis_date: 2023-04-22 18:26:24
-last_modification_date: 2023-04-22 18:31:33
-whois: See more details if necessary in json_report/IpReport.json
-whois_date: 2022-09-29 00:25:25
-tags: ["private"]
-network: No data
-asn: No data
-as_owner: No data
-regional_internet_registry: No data
-country: No data
-continent: No data
+reputation: -1
+last_analysis_date: 2023-06-22 18:18:35
+last_modification_date: 2023-07-08 06:36:43
+whois:
+	inetnum: 139.198.0.0 - 139.198.255.255
+	netname: YUNIFY-NET
+	descr: Yunify Technologies Inc.
+	country: CN
+	admin-c: ZM1700-AP
+	tech-c: ZM1700-AP
+	abuse-c: AC1601-AP
+	status: ALLOCATED PORTABLE
+	mnt-by: MAINT-CNNIC-AP
+	mnt-routes: MAINT-YTL-HK
+	mnt-irt: IRT-CNNIC-CN
+	last-modified: 2021-06-16T01:33:05Z
+	source: APNIC
+	irt: IRT-CNNIC-CN
+	address: Beijing, China
+	e-mail: ipas@cnnic.cn
+	abuse-mailbox: ipas@cnnic.cn
+	admin-c: IP50-AP
+	tech-c: IP50-AP
+	auth: # Filtered
+	remarks: Please note that CNNIC is not an ISP and is not
+	remarks: empowered to investigate complaints of network abuse.
+	remarks: Please contact the tech-c or admin-c of the network.
+	mnt-by: MAINT-CNNIC-AP
+	last-modified: 2021-06-16T01:39:57Z
+	source: APNIC
+	role: ABUSE CNNICCN
+	address: Beijing, China
+	country: ZZ
+	phone: +000000000
+	e-mail: ipas@cnnic.cn
+	admin-c: IP50-AP
+	tech-c: IP50-AP
+	nic-hdl: AC1601-AP
+	remarks: Generated from irt object IRT-CNNIC-CN
+	abuse-mailbox: ipas@cnnic.cn
+	mnt-by: APNIC-ABUSE
+	last-modified: 2020-05-14T11:19:01Z
+	source: APNIC
+	person: Zhiqiang Ma
+	address: Room 1503, Tower 2, North Star New Era, Beiyuan Road
+	address: Chaoyang District, Beijing, China.
+	country: CN
+	phone: +86-13910911019
+	e-mail: mazhiqiang@yunify.com
+	nic-hdl: ZM1700-AP
+	mnt-by: MAINT-CNNIC-AP
+	last-modified: 2016-09-28T02:00:01Z
+	source: APNIC
+	route: 139.198.0.0/16
+	notify: mazhiqiang@yunify.com
+	descr: Yunify Technologies Inc.
+	country: CN
+	origin: AS59078
+	mnt-by: MAINT-YTL-HK
+	last-modified: 2018-01-18T00:40:02Z
+	source: APNIC
+whois_date: 2023-06-15 10:11:35
+tags: []
+network: "139.198.32.0/19"
+asn: 59078
+as_owner: "Yunify Technologies Inc."
+regional_internet_registry: "APNIC"
+country: "CN"
+continent: "AS"

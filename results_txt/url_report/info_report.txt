@@ -1,11 +1,12 @@
 reputation: 0
-last_analysis_date: 2022-06-17 15:36:08
-last_submission_date: 2022-06-17 15:36:08
-last_modification_date: 2022-06-17 15:41:27
+last_analysis_date: 2023-07-08 07:51:30
+last_submission_date: 2023-07-08 07:51:30
+last_modification_date: 2023-07-08 07:51:43
 Categories:
-	Comodo Valkyrie Verdict: "media sharing"
-last_http_response_content_sha256: "9990004a05ea8d10dfd2012f82d953b487d45f8d744b51a21f27cc93a55d403b"
+	Forcepoint ThreatSeeker: "financial data and services"
+	Xcitium Verdict Cloud: "media sharing"
+last_http_response_content_sha256: "f9b1ed4c61cae2263947f2b2f61fea9e7b8c2723c2e77ea8d0e093fde4675828"
 last_http_response_code: 200
-last_final_url: "https://vebotv.info/"
-last_http_response_content_length: 4060
+last_final_url: "https://www.powerfinanceworld.com/"
+last_http_response_content_length: 137352
 redirection_chain: No data

@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GenGraph {
+    // Generate visualizing bar chart to show the overall results
     public static void generate(String csvFilePath, String chartFilePath) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
@@ -24,11 +25,12 @@ public class GenGraph {
 
             Map<String, Integer> categoryCount = new HashMap<>();
 
+            // Update numbers of instances of different categories
             for (CSVRecord record : csvParser) {
-                String category = record.get("category"); // Assuming the "category" column contains categories
-
+                String category = record.get("category");
                 categoryCount.put(category, categoryCount.getOrDefault(category, 0) + 1);
             }
+
 
             for (Map.Entry<String, Integer> entry : categoryCount.entrySet()) {
                 String category = entry.getKey();

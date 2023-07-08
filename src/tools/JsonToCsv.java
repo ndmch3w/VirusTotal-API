@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import java.io.*;
 
 public class JsonToCsv{
+    // Convert results in json report to csv file -> gen graph later
     public static void convert(String jsonFilePath, String csvFilePath) throws FileNotFoundException {
         Gson gson = new Gson();
         FileReader fileReader = new FileReader(jsonFilePath);
@@ -24,7 +25,7 @@ public class JsonToCsv{
                 String category = toolData.get("category").toString();
                 String result = toolData.get("result").toString();
                 writer.write(toolName + "," + category + "," + result + "\n");
-        }
+            }
             System.out.println("CSV Report file is created successfully.");
         } catch (IOException e) {
             System.out.println("Error occurred while creating/writing to the CSV file: " + e.getMessage());
